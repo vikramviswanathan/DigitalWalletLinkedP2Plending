@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/loginscreen_paddingLeft"
+        android:paddingRight="@dimen/loginscreen_paddingRight"
+        android:paddingTop="@dimen/loginscreen_paddingTop">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/loginscreen_logo_height"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/loginscreen_logo_marginBottom"
+            android:src="@drawable/rbl_logo" />
+
+        <!-- Email -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/loginscreen_emailEdTxt_marginBottom"
+            android:layout_marginTop="@dimen/loginscreen_emailEdTxt_marginTop">
+
+            <EditText
+                android:id="@+id/loginscreen_edTextLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/loginscreen_emailHint"
+                android:inputType="textEmailAddress" />
+        </android.support.design.widget.TextInputLayout>
+
+        <!--  Password -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/loginscreen_passwordEdTxt_marginBottom"
+            android:layout_marginTop="@dimen/loginscreen_passwordEdTxt_marginTop">
+
+            <EditText
+                android:id="@+id/loginscreen_edTextPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/loginscreen_passwordHint"
+                android:inputType="textPassword" />
+        </android.support.design.widget.TextInputLayout>
+
+        <!-- Login Button -->
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/loginscreen_btnLogin"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/loginscreen_loginBtn_marginBottom"
+            android:layout_marginTop="@dimen/loginscreen_loginBtn_marginTop"
+            android:padding="@dimen/loginscreen_loginBtn_padding"
+            android:text="@string/loginscreen_loginBtnText" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <!-- Sign Up -->
+            <TextView
+                android:id="@+id/loginscreen_txtVwNewAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/loginscreen_newAccount_marginBottom"
+                android:gravity="center"
+                android:text="@string/loginscreen_newAccountText"
+                android:textSize="@dimen/loginscreen_newAccount_textSize" />
+
+            <TextView
+                android:id="@+id/loginscreen_txtVwSignUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/loginscreen_signUp_marginBottom"
+                android:layout_toRightOf="@+id/loginscreen_txtVwNewAccount"
+                android:gravity="center"
+                android:text="@string/loginscreen_signUpText"
+                android:textSize="@dimen/loginscreen_signUp_textSize" />
+        </RelativeLayout>
+    </LinearLayout>
+</ScrollView>

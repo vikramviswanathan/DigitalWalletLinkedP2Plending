@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Digital Wallet Linked P2P lending</string>
+
+    <!-- Login Screen -->
+    <string name="loginscreen_emailHint">Email</string>
+    <string name="loginscreen_passwordHint">Password</string>
+    <string name="loginscreen_loginBtnText">Login</string>
+    <string name="loginscreen_newAccountText">No Account yet?</string>
+    <string name="loginscreen_signUpText"> \t Create one</string>
+    <string name="loginscreen_loaderText">Authenticating...</string>
+    <string name="loginscreen_emailError">Enter a valid email address</string>
+    <string name="loginscreen_passwordError">Between 4 and 10 alphanumeric characters</string>
 </resources>

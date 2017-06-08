@@ -44,9 +44,9 @@ public class SplashScreen_Activity extends Activity {
 
         animation = AnimationUtils.loadAnimation(this, R.anim.translate);
         animation.reset();
-        ImageView iv = (ImageView) findViewById(R.id.splashscreen_imgViewSplash);
-        iv.clearAnimation();
-        iv.startAnimation(animation);
+        ImageView imageView = (ImageView) findViewById(R.id.splashscreen_imgViewSplash);
+        imageView.clearAnimation();
+        imageView.startAnimation(animation);
         splashTread = new Thread() {
             @Override
             public void run() {
@@ -58,7 +58,7 @@ public class SplashScreen_Activity extends Activity {
                         waited += 100;
                     }
                     Intent intent = new Intent(SplashScreen_Activity.this,
-                            Dashboard_Activity.class);
+                            Login_Activity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(intent);
                     SplashScreen_Activity.this.finish();

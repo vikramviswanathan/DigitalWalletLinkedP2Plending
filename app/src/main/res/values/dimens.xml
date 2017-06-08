@@ -1,0 +1,20 @@
+<resources>
+
+    <!-- Login Screen -->
+    <dimen name="loginscreen_paddingLeft">24dp</dimen>
+    <dimen name="loginscreen_paddingRight">24dp</dimen>
+    <dimen name="loginscreen_paddingTop">56dp</dimen>
+    <dimen name="loginscreen_logo_height">72dp</dimen>
+    <dimen name="loginscreen_logo_marginBottom">24dp</dimen>
+    <dimen name="loginscreen_emailEdTxt_marginBottom">8dp</dimen>
+    <dimen name="loginscreen_emailEdTxt_marginTop">8dp</dimen>
+    <dimen name="loginscreen_passwordEdTxt_marginBottom">8dp</dimen>
+    <dimen name="loginscreen_passwordEdTxt_marginTop">8dp</dimen>
+    <dimen name="loginscreen_loginBtn_marginBottom">24dp</dimen>
+    <dimen name="loginscreen_loginBtn_marginTop">24dp</dimen>
+    <dimen name="loginscreen_loginBtn_padding">12dp</dimen>
+    <dimen name="loginscreen_newAccount_marginBottom">24dp</dimen>
+    <dimen name="loginscreen_newAccount_textSize">16dip</dimen>
+    <dimen name="loginscreen_signUp_marginBottom">24dp</dimen>
+    <dimen name="loginscreen_signUp_textSize">16dip</dimen>
+</resources>

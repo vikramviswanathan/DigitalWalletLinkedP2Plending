@@ -14,9 +14,9 @@
 
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/loginscreen_logo_height"
+            android:layout_height="@dimen/common_logo_height"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="@dimen/loginscreen_logo_marginBottom"
+            android:layout_marginBottom="@dimen/common_logo_marginBottom"
             android:src="@drawable/rbl_logo" />
 
         <!-- Email -->
@@ -27,25 +27,24 @@
             android:layout_marginTop="@dimen/loginscreen_emailEdTxt_marginTop">
 
             <EditText
-                android:id="@+id/loginscreen_edTextLogin"
+                android:id="@+id/loginscreen_edTextEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/loginscreen_emailHint"
-                android:inputType="textEmailAddress" />
+                android:hint="@string/loginscreen_emailHint" />
         </android.support.design.widget.TextInputLayout>
 
         <!--  Password -->
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/loginscreen_passwordEdTxt_marginBottom"
-            android:layout_marginTop="@dimen/loginscreen_passwordEdTxt_marginTop">
+            android:layout_marginBottom="@dimen/common_passwordEdTxt_marginBottom"
+            android:layout_marginTop="@dimen/common_passwordEdTxt_marginTop">
 
             <EditText
                 android:id="@+id/loginscreen_edTextPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/loginscreen_passwordHint"
+                android:hint="@string/common_passwordHint"
                 android:inputType="textPassword" />
         </android.support.design.widget.TextInputLayout>
 

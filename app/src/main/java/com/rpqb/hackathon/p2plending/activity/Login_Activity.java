@@ -21,10 +21,10 @@ import butterknife.ButterKnife;
  */
 
 public class Login_Activity extends AppCompatActivity {
-    private static final String TAG = "Login_Activity";
+    private final String TAG = this.getClass().getSimpleName();
     private static final int REQUEST_SIGNUP = 0;
 
-    @BindView(R.id.loginscreen_edTextLogin)
+    @BindView(R.id.loginscreen_edTextEmail)
     EditText edtTxt_login;
     @BindView(R.id.loginscreen_edTextPassword)
     EditText edtTxt_Password;
@@ -43,6 +43,17 @@ public class Login_Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 login();
+            }
+        });
+
+        txtVwSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Start the Signup activity
+                Intent intent = new Intent(getApplicationContext(), Signup_Activity.class);
+                startActivityForResult(intent, REQUEST_SIGNUP);
+                Login_Activity.this.finish();
+                overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
             }
         });
     }
@@ -117,14 +128,14 @@ public class Login_Activity extends AppCompatActivity {
         String password = edtTxt_Password.getText().toString();
 
         if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            edtTxt_login.setError(getResources().getString(R.string.loginscreen_emailError));
+            edtTxt_login.setError(getResources().getString(R.string.common_emailError));
             valid = false;
         } else {
             edtTxt_login.setError(null);
         }
 
         if (password.isEmpty() || password.length() < 4 || password.length() > 10) {
-            edtTxt_Password.setError(getResources().getString(R.string.loginscreen_passwordError));
+            edtTxt_Password.setError(getResources().getString(R.string.common_passwordError));
             valid = false;
         } else {
             edtTxt_Password.setError(null);

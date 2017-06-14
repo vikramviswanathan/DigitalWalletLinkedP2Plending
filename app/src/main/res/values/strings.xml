@@ -1,13 +1,35 @@
 <resources>
     <string name="app_name">Digital Wallet Linked P2P lending</string>
+    <string name="common_passwordHint">Password</string>
+    <string name="common_emailError">Enter a valid email address</string>
+    <string name="common_passwordError">Between 4 and 10 alphanumeric characters</string>
 
     <!-- Login Screen -->
     <string name="loginscreen_emailHint">Email</string>
-    <string name="loginscreen_passwordHint">Password</string>
     <string name="loginscreen_loginBtnText">Login</string>
     <string name="loginscreen_newAccountText">No Account yet?</string>
     <string name="loginscreen_signUpText"> \t Create one</string>
     <string name="loginscreen_loaderText">Authenticating...</string>
-    <string name="loginscreen_emailError">Enter a valid email address</string>
-    <string name="loginscreen_passwordError">Between 4 and 10 alphanumeric characters</string>
+
+    <!-- SignUp Screen -->
+    <string name="signup_toolbarText">Sign Up</string>
+    <string name="signup_alreadyMemberText">Already a member?</string>
+    <string name="signup_loginText"> \t Login</string>
+    <string name="signup_createAccount">Create Account</string>
+    <string name="signup_firstNameHint">First Name</string>
+    <string name="signup_lastNameHint">Last Name</string>
+    <string name="signup_phoneNoHint">Phone Number</string>
+    <string name="signup_kycNoHint">KYC Number</string>
+    <string name="signup_emailHint">Email</string>
+    <string name="signup_spinnerKYCDocHint">KYC Document</string>
+    <string name="signup_spinnerUserTypeHint">User Type</string>
+    <string name="signup_rePasswordHint">Confirm Password</string>
+    <string name="signup_passwordConfirmError">Passwords do not match</string>
+    <string name="signup_spinnerUserTypeError">Choose a user type</string>
+    <string name="signup_spinnerKYCDocumentError">Choose a valid KYC Document</string>
+    <string name="signup_kycNoError">Enter a valid KYC Number</string>
+    <string name="signup_phoneNoError">Enter a valid Phone No.</string>
+    <string name="signup_firstNameError">Enter a valid First Name</string>
+    <string name="signup_lastNameError">Enter a valid Last Name</string>
+    <string name="signup_loaderText">Registering...</string>
 </resources>

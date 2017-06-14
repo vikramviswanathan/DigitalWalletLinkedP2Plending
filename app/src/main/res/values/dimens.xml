@@ -1,15 +1,20 @@
 <resources>
+    <!-- Common -->
+    <dimen name="common_logo_height">72dp</dimen>
+    <dimen name="common_logo_marginBottom">24dp</dimen>
+    <dimen name="common_logo_marginTop">19dp</dimen>
+    <dimen name="common_paddingLeft">24dp</dimen>
+    <dimen name="common_paddingRight">24dp</dimen>
+    <dimen name="common_paddingTop">56dp</dimen>
+    <dimen name="common_passwordEdTxt_marginBottom">8dp</dimen>
+    <dimen name="common_passwordEdTxt_marginTop">8dp</dimen>
 
     <!-- Login Screen -->
     <dimen name="loginscreen_paddingLeft">24dp</dimen>
     <dimen name="loginscreen_paddingRight">24dp</dimen>
     <dimen name="loginscreen_paddingTop">56dp</dimen>
-    <dimen name="loginscreen_logo_height">72dp</dimen>
-    <dimen name="loginscreen_logo_marginBottom">24dp</dimen>
     <dimen name="loginscreen_emailEdTxt_marginBottom">8dp</dimen>
     <dimen name="loginscreen_emailEdTxt_marginTop">8dp</dimen>
-    <dimen name="loginscreen_passwordEdTxt_marginBottom">8dp</dimen>
-    <dimen name="loginscreen_passwordEdTxt_marginTop">8dp</dimen>
     <dimen name="loginscreen_loginBtn_marginBottom">24dp</dimen>
     <dimen name="loginscreen_loginBtn_marginTop">24dp</dimen>
     <dimen name="loginscreen_loginBtn_padding">12dp</dimen>
@@ -17,4 +22,18 @@
     <dimen name="loginscreen_newAccount_textSize">16dip</dimen>
     <dimen name="loginscreen_signUp_marginBottom">24dp</dimen>
     <dimen name="loginscreen_signUp_textSize">16dip</dimen>
+
+    <!-- Signup Screen -->
+    <dimen name="signup_commonEdTxt_marginBottom">8dp</dimen>
+    <dimen name="signup_commonEdTxt_marginTop">8dp</dimen>
+    <dimen name="signup_toolbar_marginTop">58dp</dimen>
+    <dimen name="signup_alreadyMember_marginBottom">24dp</dimen>
+    <dimen name="signup_alreadyMember_textSize">16dip</dimen>
+    <dimen name="signup_login_marginBottom">24dp</dimen>
+    <dimen name="signup_login_textSize">16dip</dimen>
+    <dimen name="signup_login_marginStart">47dp</dimen>
+    <dimen name="signup_createAccBtn_marginTop">23dp</dimen>
+    <dimen name="signup_createAccBtn_marginBottom">24dp</dimen>
+    <dimen name="signup_paddingLeft">24dp</dimen>
+    <dimen name="signup_paddingRight">24dp</dimen>
 </resources>

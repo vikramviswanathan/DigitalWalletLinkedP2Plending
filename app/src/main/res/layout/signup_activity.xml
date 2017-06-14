@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/signup_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/signup_toolbar_marginTop"
+            android:background="?attr/colorPrimaryDark"
+            android:minHeight="?attr/actionBarSize"
+            android:titleTextColor="@color/white" />
+
+        <ImageView
+            android:id="@+id/signup_imgVwLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/common_logo_height"
+            android:layout_below="@+id/signup_toolbar"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/common_logo_marginBottom"
+            android:layout_marginTop="@dimen/common_logo_marginTop"
+            android:adjustViewBounds="false"
+            android:cropToPadding="false"
+            android:paddingLeft="@dimen/signup_paddingLeft"
+            android:paddingRight="@dimen/signup_paddingRight"
+            android:src="@drawable/rbl_logo"
+            tools:ignore="ContentDescription" />
+
+        <!-- User Type -->
+        <fr.ganfra.materialspinner.MaterialSpinner
+            android:id="@+id/signup_spinUserType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/btn_signup"
+            android:layout_alignStart="@+id/btn_signup"
+            android:layout_below="@+id/signup_imgVwLogo"
+            android:layout_marginBottom="@dimen/signup_commonEdTxt_marginBottom"
+            android:layout_marginTop="@dimen/signup_commonEdTxt_marginTop"
+            app:ms_enableErrorLabel="true"
+            app:ms_enableFloatingLabel="false"
+            app:ms_errorColor="@color/white"
+            app:ms_hint="@string/signup_spinnerUserTypeHint"
+            app:ms_hintColor="@color/iron" />
+
+        <!-- First Name -->
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/signup_txtInputFirstName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/signup_spinUserType"
+            android:layout_marginBottom="@dimen/signup_commonEdTxt_marginBottom"
+            android:layout_marginTop="@dimen/signup_commonEdTxt_marginTop"
+            android:paddingLeft="@dimen/signup_paddingLeft"
+            android:paddingRight="@dimen/signup_paddingRight">
+
+            <EditText
+                android:id="@+id/signup_edTextFirstName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/signup_firstNameHint" />
+        </android.support.design.widget.TextInputLayout>
+
+        <!-- Last Name -->
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/signup_txtInputLastName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/signup_txtInputFirstName"
+            android:layout_marginBottom="@dimen/signup_commonEdTxt_marginBottom"
+            android:layout_marginTop="@dimen/signup_commonEdTxt_marginTop"
+            android:paddingLeft="@dimen/signup_paddingLeft"
+            android:paddingRight="@dimen/signup_paddingRight">
+
+            <EditText
+                android:id="@+id/signup_edTextLastName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/signup_lastNameHint" />
+        </android.support.design.widget.TextInputLayout>
+
+        <!-- Phone Number -->
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/signup_txtInputPhoneNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/signup_txtInputLastName"
+            android:layout_marginBottom="@dimen/signup_commonEdTxt_marginBottom"
+            android:layout_marginTop="@dimen/signup_commonEdTxt_marginTop"
+            android:paddingLeft="@dimen/signup_paddingLeft"
+            android:paddingRight="@dimen/signup_paddingRight">
+
+            <EditText
+                android:id="@+id/signup_edTextPhoneNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/signup_phoneNoHint"
+                android:inputType="number"
+                android:maxLength="10" />
+        </android.support.design.widget.TextInputLayout>
+
+        <!-- KYC Document -->
+        <fr.ganfra.materialspinner.MaterialSpinner
+            android:id="@+id/signup_spinKYCDoc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/btn_signup"
+            android:layout_alignStart="@+id/btn_signup"
+            android:layout_below="@+id/signup_txtInputPhoneNo"
+            android:layout_marginBottom="@dimen/signup_commonEdTxt_marginBottom"
+            android:layout_marginTop="@dimen/signup_commonEdTxt_marginTop"
+            app:ms_enableErrorLabel="true"
+            app:ms_enableFloatingLabel="false"
+            app:ms_errorColor="@color/error_color"
+            app:ms_hint="@string/signup_spinnerKYCDocHint"
+            app:ms_hintColor="@color/iron" />
+
+        <!-- KYC Number -->
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/signup_txtInputKYCNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/signup_spinKYCDoc"
+            android:layout_marginBottom="@dimen/signup_commonEdTxt_marginBottom"
+            android:layout_marginTop="@dimen/signup_commonEdTxt_marginTop"
+            android:paddingLeft="@dimen/signup_paddingLeft"
+            android:paddingRight="@dimen/signup_paddingRight">
+
+            <EditText
+                android:id="@+id/signup_edTextKYCNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/signup_kycNoHint" />
+        </android.support.design.widget.TextInputLayout>
+
+        <!-- Email -->
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/signup_txtInputEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/signup_txtInputKYCNo"
+            android:layout_marginBottom="@dimen/signup_commonEdTxt_marginBottom"
+            android:layout_marginTop="@dimen/signup_commonEdTxt_marginTop"
+            android:paddingLeft="@dimen/signup_paddingLeft"
+            android:paddingRight="@dimen/signup_paddingRight">
+
+            <EditText
+                android:id="@+id/signup_edTextEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/signup_emailHint" />
+        </android.support.design.widget.TextInputLayout>
+
+        <!--  Password -->
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/signup_txtInputPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/signup_txtInputEmail"
+            android:layout_marginBottom="@dimen/common_passwordEdTxt_marginBottom"
+            android:layout_marginTop="@dimen/common_passwordEdTxt_marginTop"
+            android:paddingLeft="@dimen/signup_paddingLeft"
+            android:paddingRight="@dimen/signup_paddingRight">
+
+            <EditText
+                android:id="@+id/signup_edTextPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/common_passwordHint"
+                android:inputType="textPassword" />
+        </android.support.design.widget.TextInputLayout>
+
+        <!--  Re-Enter Password -->
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/signup_txtInputRePassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/signup_txtInputPassword"
+            android:layout_marginBottom="@dimen/common_passwordEdTxt_marginBottom"
+            android:layout_marginTop="@dimen/common_passwordEdTxt_marginBottom"
+            android:paddingLeft="@dimen/signup_paddingLeft"
+            android:paddingRight="@dimen/signup_paddingRight">
+
+            <EditText
+                android:id="@+id/signup_edTextRePassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/signup_rePasswordHint"
+                android:inputType="textPassword" />
+        </android.support.design.widget.TextInputLayout>
+
+        <!-- Signup Button -->
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/signup_imgVwLogo"
+            android:layout_alignStart="@+id/signup_imgVwLogo"
+            android:layout_below="@+id/signup_txtInputRePassword"
+            android:layout_marginBottom="@dimen/signup_createAccBtn_marginBottom"
+            android:layout_marginTop="@dimen/signup_createAccBtn_marginTop"
+            android:paddingLeft="@dimen/signup_paddingLeft"
+            android:paddingRight="@dimen/signup_paddingRight"
+            android:text="@string/signup_createAccount" />
+
+        <!-- Login -->
+        <TextView
+            android:id="@+id/signup_txtVwAlreadyMember"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/signup_txtVwLogin"
+            android:layout_alignStart="@+id/signup_imgVwLogo"
+            android:layout_marginStart="@dimen/signup_login_marginStart"
+            android:text="@string/signup_alreadyMemberText"
+            android:textSize="@dimen/signup_alreadyMember_textSize" />
+
+        <TextView
+            android:id="@+id/signup_txtVwLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_signup"
+            android:layout_marginBottom="@dimen/signup_login_marginBottom"
+            android:layout_toRightOf="@+id/signup_txtVwAlreadyMember"
+            android:text="@string/signup_loginText"
+            android:textSize="@dimen/signup_login_textSize" />
+    </RelativeLayout>
+</ScrollView>

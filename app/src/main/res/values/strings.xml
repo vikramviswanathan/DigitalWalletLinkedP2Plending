@@ -21,6 +21,7 @@
     <string name="signup_phoneNoHint">Phone Number</string>
     <string name="signup_kycNoHint">KYC Number</string>
     <string name="signup_emailHint">Email</string>
+    <string name="signup_upiHint">UPI Number</string>
     <string name="signup_spinnerKYCDocHint">KYC Document</string>
     <string name="signup_spinnerUserTypeHint">User Type</string>
     <string name="signup_rePasswordHint">Confirm Password</string>
@@ -31,5 +32,9 @@
     <string name="signup_phoneNoError">Enter a valid Phone No.</string>
     <string name="signup_firstNameError">Enter a valid First Name</string>
     <string name="signup_lastNameError">Enter a valid Last Name</string>
+    <string name="signup_upiError">Enter a valid UPI Number</string>
     <string name="signup_loaderText">Registering...</string>
+
+    <!-- Dashboard Screen -->
+    <string name="dashboard_toolbarText">Dashboard</string>
 </resources>

@@ -110,7 +110,7 @@ public class Login_Activity extends AppCompatActivity {
     public void onLoginSuccess() {
         btnLogin.setEnabled(true);
         Intent intent = new Intent(Login_Activity.this,
-                Dashboard_Activity.class);
+                Lendor_Dashboard_Activity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);
         Login_Activity.this.finish();

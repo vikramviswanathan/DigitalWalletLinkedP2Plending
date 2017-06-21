@@ -27,8 +27,23 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.2.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:design:25.2.0'
-    compile 'com.jakewharton:butterknife:8.5.1'
+    compile 'com.android.support:recyclerview-v7:25.2.0'
+    compile 'com.android.support:cardview-v7:25.2.0'
+    compile 'com.android.support:palette-v7:25.2.0'
+
+    // library for spinner
     compile 'com.github.ganfra:material-spinner:1.1.1'
+
+    // butterknife
+    compile 'com.jakewharton:butterknife:8.5.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+
+    // retrofit
+    compile 'com.squareup.retrofit2:retrofit:2.0.2'
+
+    // JSON Parsing
+    compile 'com.google.code.gson:gson:2.6.2'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.2'
+
     testCompile 'junit:junit:4.12'
 }

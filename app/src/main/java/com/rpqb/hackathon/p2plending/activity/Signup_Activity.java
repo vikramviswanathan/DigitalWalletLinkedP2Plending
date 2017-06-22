@@ -18,7 +18,7 @@ import com.rpqb.hackathon.p2plending.R;
 import com.rpqb.hackathon.p2plending.model.User;
 import com.rpqb.hackathon.p2plending.rest.ApiClient;
 import com.rpqb.hackathon.p2plending.rest.P2PLendingAPI;
-import com.rpqb.hackathon.p2plending.transferobject.JSONResponse;
+import com.rpqb.hackathon.p2plending.transferobject.ResponseTO;
 import com.rpqb.hackathon.p2plending.utils.Constants;
 
 import butterknife.BindView;
@@ -185,7 +185,7 @@ public class Signup_Activity extends AppCompatActivity {
             @Override
             public void onResponse(Call call, Response response) {
                 Log.d(TAG, "Register User Response: " + response.body());
-                JSONResponse jsonResponse = (JSONResponse) response.body();
+                ResponseTO jsonResponse = (ResponseTO) response.body();
                 progressDialog.hide();
                 onSignUpSuccess(jsonResponse);
             }
@@ -314,7 +314,7 @@ public class Signup_Activity extends AppCompatActivity {
     /**
      * Method for handling Success signup scenario.
      */
-    public void onSignUpSuccess(JSONResponse response) {
+    public void onSignUpSuccess(ResponseTO response) {
         btnSignUp.setEnabled(true);
         Log.d(TAG, "Success Response: " + response);
 

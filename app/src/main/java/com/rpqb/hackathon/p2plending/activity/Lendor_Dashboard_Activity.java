@@ -11,9 +11,18 @@ import android.widget.Toast;
 
 import com.rpqb.hackathon.p2plending.R;
 import com.rpqb.hackathon.p2plending.adapter.Dashboard_Adapter;
+import com.rpqb.hackathon.p2plending.model.Project;
+import com.rpqb.hackathon.p2plending.rest.ApiClient;
+import com.rpqb.hackathon.p2plending.rest.P2PLendingAPI;
+import com.rpqb.hackathon.p2plending.transferobject.ProjectTO;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by Vikramv on 6/7/2017.
@@ -24,6 +33,8 @@ public class Lendor_Dashboard_Activity extends AppCompatActivity {
     private StaggeredGridLayoutManager mStaggeredGridLayoutManager;
     private Dashboard_Adapter dashboardAdapter;
     Toolbar toolbar;
+    private ArrayList<Project> projectList = new ArrayList<Project>();
+    private P2PLendingAPI mP2PLendingAPIService;
 
     @BindView(R.id.dashboard_recyclerList)
     RecyclerView mRecylerView;
@@ -32,14 +43,14 @@ public class Lendor_Dashboard_Activity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lendor_dashboard_activity);
-        initToolBar();
+        init();
         ButterKnife.bind(this);
 
         // for one column grid layout
         mStaggeredGridLayoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
         mRecylerView.setLayoutManager(mStaggeredGridLayoutManager);
 
-        dashboardAdapter = new Dashboard_Adapter(this);
+        dashboardAdapter = new Dashboard_Adapter(this, projectList);
         mRecylerView.setAdapter(dashboardAdapter);
         dashboardAdapter.setmItemClickListener(onItemClickListener);
     }
@@ -52,12 +63,38 @@ public class Lendor_Dashboard_Activity extends AppCompatActivity {
     };
 
     /**
-     * Toolbar Initialization
+     * Toolbar and Project List Initialization
      */
-    public void initToolBar() {
-        Log.d(TAG, "Dashboard InitToolBar");
+    public void init() {
+        Log.d(TAG, "Dashboard Init");
         toolbar = (Toolbar) findViewById(R.id.dashboard_toolbar);
         toolbar.setTitle(R.string.dashboard_toolbarText);
         setSupportActionBar(toolbar);
+
+        mP2PLendingAPIService = ApiClient.getP2PLendingAPIService();
+        Call mCall = mP2PLendingAPIService.getCampaignList();
+        mCall.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+                ArrayList<ProjectTO> projectTOList = (ArrayList<ProjectTO>) response.body();
+                for (ProjectTO projectTO : projectTOList) {
+                    Project project = new Project();
+                    project.setUserid(projectTO.getUserid());
+                    project.setDescription(projectTO.getDescription());
+                    project.setInterest(projectTO.getInterest());
+                    project.setTitle(projectTO.getTitle());
+                    project.setNoOfTerms(projectTO.getNoOfTerms());
+                    project.setLoanamount(projectTO.getLoanamount());
+
+                    projectList.add(project);
+                }
+                Log.d(TAG, "CampaignList Size: " + projectList.size());
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+
+            }
+        });
     }
 }

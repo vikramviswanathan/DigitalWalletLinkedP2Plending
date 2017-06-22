@@ -1,10 +1,14 @@
 package com.rpqb.hackathon.p2plending.rest;
 
 import com.rpqb.hackathon.p2plending.model.User;
-import com.rpqb.hackathon.p2plending.transferobject.JSONResponse;
+import com.rpqb.hackathon.p2plending.transferobject.ProjectTO;
+import com.rpqb.hackathon.p2plending.transferobject.ResponseTO;
+
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 /**
@@ -13,5 +17,8 @@ import retrofit2.http.POST;
 
 public interface P2PLendingAPI {
     @POST("registerUser")
-    Call<JSONResponse> registerUser(@Body User userDetails);
+    Call<ResponseTO> registerUser(@Body User userDetails);
+
+    @GET("campaign/campaignlist")
+    Call<ArrayList<ProjectTO>> getCampaignList();
 }

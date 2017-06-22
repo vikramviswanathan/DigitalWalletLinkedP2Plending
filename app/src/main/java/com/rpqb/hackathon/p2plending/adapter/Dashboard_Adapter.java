@@ -23,9 +23,11 @@ public class Dashboard_Adapter extends RecyclerView.Adapter<Dashboard_Adapter.Vi
     private final String TAG = this.getClass().getSimpleName();
     private Context mContext;
     private OnItemClickListener mItemClickListener;
+    private ArrayList<Project> projectList;
 
-    public Dashboard_Adapter(Context mContext) {
+    public Dashboard_Adapter(Context mContext, ArrayList<Project> projectList) {
         this.mContext = mContext;
+        this.projectList = projectList;
     }
 
     @Override
@@ -34,12 +36,14 @@ public class Dashboard_Adapter extends RecyclerView.Adapter<Dashboard_Adapter.Vi
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        //public CardView dashboard_cardView;
         public LinearLayout linearMainHolder;
         public RelativeLayout relativeListHolder;
         public TextView projectTitle;
 
         public ViewHolder(View itemView) {
             super(itemView);
+            //dashboard_cardView = (CardView) itemView.findViewById(R.id.dashboard_cardView);
             linearMainHolder = (LinearLayout) itemView.findViewById(R.id.dashboard_linearMainHolder);
             relativeListHolder = (RelativeLayout) itemView.findViewById(R.id.dashboard_relativeListHolder);
             projectTitle = (TextView) itemView.findViewById(R.id.dashboard_projectTitle);
@@ -52,19 +56,6 @@ public class Dashboard_Adapter extends RecyclerView.Adapter<Dashboard_Adapter.Vi
                 mItemClickListener.onItemClick(itemView);
             }
         }
-    }
-
-    public ArrayList<Project> getProjectList() {
-        ArrayList<Project> projectList = new ArrayList<Project>();
-        String[] placeNameArray = {"Test1", "Test2"};
-        for (String projectTitle : placeNameArray) {
-            Project project = new Project();
-            project.setProjectTitle(projectTitle);
-
-            projectList.add(project);
-        }
-
-        return projectList;
     }
 
     /**
@@ -115,8 +106,9 @@ public class Dashboard_Adapter extends RecyclerView.Adapter<Dashboard_Adapter.Vi
      */
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Project project = getProjectList().get(position);
-        holder.projectTitle.setText(project.getProjectTitle());
+        //holder.dashboard_cardView.setCardBackgroundColor(Color.MAGENTA);
+        Project project = projectList.get(position);
+        holder.projectTitle.setText(project.getTitle());
     }
 
     /**
@@ -126,7 +118,7 @@ public class Dashboard_Adapter extends RecyclerView.Adapter<Dashboard_Adapter.Vi
      */
     @Override
     public int getItemCount() {
-        return getProjectList().size();
+        return projectList.size();
     }
 
     public interface OnItemClickListener {

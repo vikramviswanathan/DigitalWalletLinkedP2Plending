@@ -36,7 +36,7 @@ public class Lendor_Dashboard_Activity extends AppCompatActivity {
     private ArrayList<Project> projectList = new ArrayList<Project>();
     private P2PLendingAPI mP2PLendingAPIService;
 
-    @BindView(R.id.dashboard_recyclerList)
+    @BindView(R.id.lendor_dashboard_recyclerList)
     RecyclerView mRecylerView;
 
     @Override
@@ -67,7 +67,7 @@ public class Lendor_Dashboard_Activity extends AppCompatActivity {
      */
     public void init() {
         Log.d(TAG, "Dashboard Init");
-        toolbar = (Toolbar) findViewById(R.id.dashboard_toolbar);
+        toolbar = (Toolbar) findViewById(R.id.lendor_dashboard_toolbar);
         toolbar.setTitle(R.string.dashboard_toolbarText);
         setSupportActionBar(toolbar);
 
@@ -93,7 +93,7 @@ public class Lendor_Dashboard_Activity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call call, Throwable t) {
-
+                Log.d(TAG, "Network call failure to fetch Campaign List");
             }
         });
     }

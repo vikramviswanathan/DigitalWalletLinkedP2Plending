@@ -10,6 +10,8 @@
     <dimen name="common_passwordEdTxt_marginTop">8dp</dimen>
     <dimen name="common_margin">8dp</dimen>
     <dimen name="common_toolbar_marginTop">58dp</dimen>
+    <dimen name="common_commonEdTxt_marginBottom">8dp</dimen>
+    <dimen name="common_commonEdTxt_marginTop">8dp</dimen>
 
     <!-- Login Screen -->
     <dimen name="loginscreen_paddingLeft">24dp</dimen>
@@ -26,8 +28,6 @@
     <dimen name="loginscreen_signUp_textSize">16dip</dimen>
 
     <!-- Signup Screen -->
-    <dimen name="signup_commonEdTxt_marginBottom">8dp</dimen>
-    <dimen name="signup_commonEdTxt_marginTop">8dp</dimen>
     <dimen name="signup_alreadyMember_marginBottom">24dp</dimen>
     <dimen name="signup_alreadyMember_textSize">16dip</dimen>
     <dimen name="signup_login_marginBottom">24dp</dimen>
@@ -35,12 +35,15 @@
     <dimen name="signup_login_marginStart">47dp</dimen>
     <dimen name="signup_createAccBtn_marginTop">23dp</dimen>
     <dimen name="signup_createAccBtn_marginBottom">24dp</dimen>
-    <dimen name="signup_paddingLeft">24dp</dimen>
-    <dimen name="signup_paddingRight">24dp</dimen>
 
     <!-- Dashboard Screen -->
     <dimen name="dashboard_cardElevation">1dp</dimen>
     <dimen name="dashboard_cardCornerRadius">0dp</dimen>
     <dimen name="dashboard_relativeHeight">45dp</dimen>
     <dimen name="dashboard_projectTitlePaddingLeft">10dp</dimen>
+    <dimen name="dashboard_floatingActionButtonMargin">16dp</dimen>
+
+    <!-- Add New Project Screen -->
+    <dimen name="addnewproject_addNewProjectBtn_marginTop">23dp</dimen>
+    <dimen name="addnewproject_addNewProjectBtn_marginBottom">24dp</dimen>
 </resources>

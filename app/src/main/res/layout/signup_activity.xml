@@ -31,8 +31,8 @@
             android:layout_marginTop="@dimen/common_logo_marginTop"
             android:adjustViewBounds="false"
             android:cropToPadding="false"
-            android:paddingLeft="@dimen/signup_paddingLeft"
-            android:paddingRight="@dimen/signup_paddingRight"
+            android:paddingLeft="@dimen/common_paddingLeft"
+            android:paddingRight="@dimen/common_paddingRight"
             android:src="@drawable/rbl_logo"
             tools:ignore="ContentDescription" />
 
@@ -44,8 +44,8 @@
             android:layout_alignEnd="@+id/btn_signup"
             android:layout_alignStart="@+id/btn_signup"
             android:layout_below="@+id/signup_imgVwLogo"
-            android:layout_marginBottom="@dimen/signup_commonEdTxt_marginBottom"
-            android:layout_marginTop="@dimen/signup_commonEdTxt_marginTop"
+            android:layout_marginBottom="@dimen/common_commonEdTxt_marginBottom"
+            android:layout_marginTop="@dimen/common_commonEdTxt_marginTop"
             app:ms_enableErrorLabel="true"
             app:ms_enableFloatingLabel="false"
             app:ms_errorColor="@color/white"
@@ -58,10 +58,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/signup_spinUserType"
-            android:layout_marginBottom="@dimen/signup_commonEdTxt_marginBottom"
-            android:layout_marginTop="@dimen/signup_commonEdTxt_marginTop"
-            android:paddingLeft="@dimen/signup_paddingLeft"
-            android:paddingRight="@dimen/signup_paddingRight">
+            android:layout_marginBottom="@dimen/common_commonEdTxt_marginBottom"
+            android:layout_marginTop="@dimen/common_commonEdTxt_marginTop"
+            android:paddingLeft="@dimen/common_paddingLeft"
+            android:paddingRight="@dimen/common_paddingRight">
 
             <EditText
                 android:id="@+id/signup_edTextFirstName"
@@ -76,10 +76,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/signup_txtInputFirstName"
-            android:layout_marginBottom="@dimen/signup_commonEdTxt_marginBottom"
-            android:layout_marginTop="@dimen/signup_commonEdTxt_marginTop"
-            android:paddingLeft="@dimen/signup_paddingLeft"
-            android:paddingRight="@dimen/signup_paddingRight">
+            android:layout_marginBottom="@dimen/common_commonEdTxt_marginBottom"
+            android:layout_marginTop="@dimen/common_commonEdTxt_marginTop"
+            android:paddingLeft="@dimen/common_paddingLeft"
+            android:paddingRight="@dimen/common_paddingRight">
 
             <EditText
                 android:id="@+id/signup_edTextLastName"
@@ -94,10 +94,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/signup_txtInputLastName"
-            android:layout_marginBottom="@dimen/signup_commonEdTxt_marginBottom"
-            android:layout_marginTop="@dimen/signup_commonEdTxt_marginTop"
-            android:paddingLeft="@dimen/signup_paddingLeft"
-            android:paddingRight="@dimen/signup_paddingRight">
+            android:layout_marginBottom="@dimen/common_commonEdTxt_marginBottom"
+            android:layout_marginTop="@dimen/common_commonEdTxt_marginTop"
+            android:paddingLeft="@dimen/common_paddingLeft"
+            android:paddingRight="@dimen/common_paddingRight">
 
             <EditText
                 android:id="@+id/signup_edTextPhoneNo"
@@ -116,8 +116,8 @@
             android:layout_alignEnd="@+id/btn_signup"
             android:layout_alignStart="@+id/btn_signup"
             android:layout_below="@+id/signup_txtInputPhoneNo"
-            android:layout_marginBottom="@dimen/signup_commonEdTxt_marginBottom"
-            android:layout_marginTop="@dimen/signup_commonEdTxt_marginTop"
+            android:layout_marginBottom="@dimen/common_commonEdTxt_marginBottom"
+            android:layout_marginTop="@dimen/common_commonEdTxt_marginTop"
             app:ms_enableErrorLabel="true"
             app:ms_enableFloatingLabel="false"
             app:ms_errorColor="@color/error_color"
@@ -130,10 +130,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/signup_spinKYCDoc"
-            android:layout_marginBottom="@dimen/signup_commonEdTxt_marginBottom"
-            android:layout_marginTop="@dimen/signup_commonEdTxt_marginTop"
-            android:paddingLeft="@dimen/signup_paddingLeft"
-            android:paddingRight="@dimen/signup_paddingRight">
+            android:layout_marginBottom="@dimen/common_commonEdTxt_marginBottom"
+            android:layout_marginTop="@dimen/common_commonEdTxt_marginTop"
+            android:paddingLeft="@dimen/common_paddingLeft"
+            android:paddingRight="@dimen/common_paddingRight">
 
             <EditText
                 android:id="@+id/signup_edTextKYCNo"
@@ -148,10 +148,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/signup_txtInputKYCNo"
-            android:layout_marginBottom="@dimen/signup_commonEdTxt_marginBottom"
-            android:layout_marginTop="@dimen/signup_commonEdTxt_marginTop"
-            android:paddingLeft="@dimen/signup_paddingLeft"
-            android:paddingRight="@dimen/signup_paddingRight">
+            android:layout_marginBottom="@dimen/common_commonEdTxt_marginBottom"
+            android:layout_marginTop="@dimen/common_commonEdTxt_marginTop"
+            android:paddingLeft="@dimen/common_paddingLeft"
+            android:paddingRight="@dimen/common_paddingRight">
 
             <EditText
                 android:id="@+id/signup_edTextEmail"
@@ -166,10 +166,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/signup_txtInputEmail"
-            android:layout_marginBottom="@dimen/signup_commonEdTxt_marginBottom"
-            android:layout_marginTop="@dimen/signup_commonEdTxt_marginTop"
-            android:paddingLeft="@dimen/signup_paddingLeft"
-            android:paddingRight="@dimen/signup_paddingRight">
+            android:layout_marginBottom="@dimen/common_commonEdTxt_marginBottom"
+            android:layout_marginTop="@dimen/common_commonEdTxt_marginTop"
+            android:paddingLeft="@dimen/common_paddingLeft"
+            android:paddingRight="@dimen/common_paddingRight">
 
             <EditText
                 android:id="@+id/signup_edTextUpi"
@@ -186,8 +186,8 @@
             android:layout_below="@+id/signup_txtInputUpi"
             android:layout_marginBottom="@dimen/common_passwordEdTxt_marginBottom"
             android:layout_marginTop="@dimen/common_passwordEdTxt_marginTop"
-            android:paddingLeft="@dimen/signup_paddingLeft"
-            android:paddingRight="@dimen/signup_paddingRight">
+            android:paddingLeft="@dimen/common_paddingLeft"
+            android:paddingRight="@dimen/common_paddingRight">
 
             <EditText
                 android:id="@+id/signup_edTextPassword"
@@ -205,8 +205,8 @@
             android:layout_below="@+id/signup_txtInputPassword"
             android:layout_marginBottom="@dimen/common_passwordEdTxt_marginBottom"
             android:layout_marginTop="@dimen/common_passwordEdTxt_marginBottom"
-            android:paddingLeft="@dimen/signup_paddingLeft"
-            android:paddingRight="@dimen/signup_paddingRight">
+            android:paddingLeft="@dimen/common_paddingLeft"
+            android:paddingRight="@dimen/common_paddingRight">
 
             <EditText
                 android:id="@+id/signup_edTextRePassword"
@@ -226,8 +226,8 @@
             android:layout_below="@+id/signup_txtInputRePassword"
             android:layout_marginBottom="@dimen/signup_createAccBtn_marginBottom"
             android:layout_marginTop="@dimen/signup_createAccBtn_marginTop"
-            android:paddingLeft="@dimen/signup_paddingLeft"
-            android:paddingRight="@dimen/signup_paddingRight"
+            android:paddingLeft="@dimen/common_paddingLeft"
+            android:paddingRight="@dimen/common_paddingRight"
             android:text="@string/signup_createAccount" />
 
         <!-- Login -->

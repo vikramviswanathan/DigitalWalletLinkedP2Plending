@@ -150,12 +150,11 @@ public class Signup_Activity extends AppCompatActivity {
         btnSignUp.setEnabled(false);
 
         final ProgressDialog progressDialog = new ProgressDialog(Signup_Activity.this,
-                R.style.AppTheme_Dark_Dialog);
+                R.style.AppTheme_Dark_Red_Dialog);
         progressDialog.setIndeterminate(true);
         progressDialog.setMessage(getResources().getString(R.string.signup_loaderText));
         progressDialog.show();
 
-        // TODO: Implement your own authentication logic here.
         String userName, userPhoneNo, userKYCDocument, userEmail, userPassword, userPanNo = "",
                 userAadharNo = "", userUpi, userType;
         userName = edTxtFirstName.getText().toString() + " " + edtTxtLastName.getText().toString();
@@ -320,7 +319,7 @@ public class Signup_Activity extends AppCompatActivity {
 
         if (response.getResponseStatus() == Constants.CREATED) {
             Intent intent = new Intent(Signup_Activity.this,
-                    Lendor_Dashboard_Activity.class);
+                    Login_Activity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(intent);
             Signup_Activity.this.finish();

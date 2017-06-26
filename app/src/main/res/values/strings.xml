@@ -37,4 +37,21 @@
 
     <!-- Dashboard Screen -->
     <string name="dashboard_toolbarText">Dashboard</string>
+
+    <!-- Add New Project -->
+    <string name="addnewproject_toolbarText">Create Campaign</string>
+    <string name="addnewproject_titleHint">Title</string>
+    <string name="addnewproject_descriptionHint">Description</string>
+    <string name="addnewproject_amountHint">Amount Required</string>
+    <string name="addnewproject_roiHint">Rate of Interest</string>
+    <string name="addnewproject_spinnerTermsOfRepaymentHint">Terms of Repayment</string>
+    <string name="addnewproject_spinnerNoOfInstallmentsHint">No. of Installments</string>
+    <string name="addnewproject_addNewProject">Create Campaign</string>
+    <string name="addnewproject_loaderText">Creating Campaign...</string>
+    <string name="addnewproject_titleError">Enter a valid title</string>
+    <string name="addnewproject_descriptionError">Enter a valid description</string>
+    <string name="addnewproject_rateOfInterestError">Enter a valid value</string>
+    <string name="addnewproject_termsOfRepaymentError">Choose a valid Terms of Repayment</string>
+    <string name="addnewproject_noOfInstallmentsError">Choose a valid Installment tenure</string>
+    <string name="addnewproject_amountError">Enter a valid amount</string>
 </resources>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/addnewproject_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_toolbar_marginTop"
+            android:background="?attr/colorPrimaryDark"
+            android:minHeight="?attr/actionBarSize"
+            android:titleTextColor="@color/white" />
+
+        <!-- Title -->
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/addnewproject_txtInputTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/addnewproject_toolbar"
+            android:layout_marginBottom="@dimen/common_commonEdTxt_marginBottom"
+            android:layout_marginTop="@dimen/common_commonEdTxt_marginTop"
+            android:paddingLeft="@dimen/common_paddingLeft"
+            android:paddingRight="@dimen/common_paddingRight">
+
+            <EditText
+                android:id="@+id/addnewproject_edTextTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/addnewproject_titleHint"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black" />
+        </android.support.design.widget.TextInputLayout>
+
+        <!-- Description -->
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/addnewproject_txtInputDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/addnewproject_txtInputTitle"
+            android:layout_marginBottom="@dimen/common_commonEdTxt_marginBottom"
+            android:layout_marginTop="@dimen/common_commonEdTxt_marginTop"
+            android:paddingLeft="@dimen/common_paddingLeft"
+            android:paddingRight="@dimen/common_paddingRight">
+
+            <EditText
+                android:id="@+id/addnewproject_edTextDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/addnewproject_descriptionHint"
+                android:inputType="textCapSentences|textMultiLine"
+                android:maxLength="2000"
+                android:scrollHorizontally="false"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <!-- Amount -->
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/addnewproject_txtInputAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/addnewproject_txtInputDescription"
+            android:layout_marginBottom="@dimen/common_commonEdTxt_marginBottom"
+            android:layout_marginTop="@dimen/common_commonEdTxt_marginTop"
+            android:paddingLeft="@dimen/common_paddingLeft"
+            android:paddingRight="@dimen/common_paddingRight">
+
+            <EditText
+                android:id="@+id/addnewproject_edTextAmount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/addnewproject_amountHint"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <!-- Rate of Interest -->
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/addnewproject_txtInputROI"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/addnewproject_txtInputAmount"
+            android:layout_marginBottom="@dimen/common_commonEdTxt_marginBottom"
+            android:layout_marginTop="@dimen/common_commonEdTxt_marginTop"
+            android:paddingLeft="@dimen/common_paddingLeft"
+            android:paddingRight="@dimen/common_paddingRight">
+
+            <EditText
+                android:id="@+id/addnewproject_edTextROI"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/addnewproject_roiHint"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <!-- Terms of Repayment -->
+        <fr.ganfra.materialspinner.MaterialSpinner
+            android:id="@+id/addnewproject_spinTermsOfRepayment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/addnewproject_txtInputROI"
+            android:layout_marginBottom="@dimen/common_commonEdTxt_marginBottom"
+            android:layout_marginLeft="@dimen/common_paddingLeft"
+            android:layout_marginRight="@dimen/common_paddingRight"
+            android:layout_marginTop="@dimen/common_commonEdTxt_marginTop"
+            app:ms_enableErrorLabel="true"
+            app:ms_enableFloatingLabel="false"
+            app:ms_errorColor="@color/white"
+            app:ms_hint="@string/addnewproject_spinnerTermsOfRepaymentHint"
+            app:ms_hintColor="@color/black"
+            android:textColorHint="@color/black"/>
+
+        <!-- No. of installments -->
+        <fr.ganfra.materialspinner.MaterialSpinner
+            android:id="@+id/addnewproject_spinNoOfInstallments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/addnewproject_spinTermsOfRepayment"
+            android:layout_marginBottom="@dimen/common_commonEdTxt_marginBottom"
+            android:layout_marginLeft="@dimen/common_paddingLeft"
+            android:layout_marginRight="@dimen/common_paddingRight"
+            android:layout_marginTop="@dimen/common_commonEdTxt_marginTop"
+            app:ms_enableErrorLabel="true"
+            app:ms_enableFloatingLabel="false"
+            app:ms_errorColor="@color/white"
+            app:ms_hint="@string/addnewproject_spinnerTermsOfRepaymentHint"
+            app:ms_hintColor="@color/black"
+            android:textColorHint="@color/black"/>
+
+        <!-- Create Campaign Button -->
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_addProject"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/addnewproject_spinNoOfInstallments"
+            android:layout_marginBottom="@dimen/addnewproject_addNewProjectBtn_marginBottom"
+            android:layout_marginLeft="@dimen/common_paddingLeft"
+            android:layout_marginRight="@dimen/common_paddingRight"
+            android:layout_marginTop="@dimen/addnewproject_addNewProjectBtn_marginTop"
+            android:paddingLeft="@dimen/common_paddingLeft"
+            android:paddingRight="@dimen/common_paddingRight"
+            android:text="@string/addnewproject_addNewProject"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+</ScrollView>

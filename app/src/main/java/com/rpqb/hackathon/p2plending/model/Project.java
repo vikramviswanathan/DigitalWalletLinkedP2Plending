@@ -23,7 +23,6 @@ public class Project {
     }
 
     public Project() {
-
     }
 
     public String getUserid() {

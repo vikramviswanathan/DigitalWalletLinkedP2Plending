@@ -1,7 +1,9 @@
 package com.rpqb.hackathon.p2plending.activity;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -12,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.rpqb.hackathon.p2plending.R;
+import com.rpqb.hackathon.p2plending.utils.Constants;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,6 +26,7 @@ import butterknife.ButterKnife;
 public class Login_Activity extends AppCompatActivity {
     private final String TAG = this.getClass().getSimpleName();
     private static final int REQUEST_SIGNUP = 0;
+    SharedPreferences sharedPreferences;
 
     @BindView(R.id.loginscreen_edTextEmail)
     EditText edtTxt_login;
@@ -38,6 +42,8 @@ public class Login_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
         ButterKnife.bind(this);
+        sharedPreferences = getSharedPreferences(Constants.AppSharedPreferences,
+                Context.MODE_PRIVATE);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,7 +92,7 @@ public class Login_Activity extends AppCompatActivity {
         btnLogin.setEnabled(false);
 
         final ProgressDialog progressDialog = new ProgressDialog(Login_Activity.this,
-                R.style.AppTheme_Dark_Dialog);
+                R.style.AppTheme_Dark_Red_Dialog);
         progressDialog.setIndeterminate(true);
         progressDialog.setMessage(getResources().getString(R.string.loginscreen_loaderText));
         progressDialog.show();
@@ -94,8 +100,11 @@ public class Login_Activity extends AppCompatActivity {
         String email = edtTxt_login.getText().toString();
         String password = edtTxt_Password.getText().toString();
 
-        // TODO: Implement your own authentication logic here.
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("userID", email);
+        editor.commit();
 
+        // TODO: Implement your own authentication logic here.
         new android.os.Handler().postDelayed(
                 new Runnable() {
                     public void run() {
@@ -110,10 +119,11 @@ public class Login_Activity extends AppCompatActivity {
     public void onLoginSuccess() {
         btnLogin.setEnabled(true);
         Intent intent = new Intent(Login_Activity.this,
-                Lendor_Dashboard_Activity.class);
+                Borrower_Dashboard_Activity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);
         Login_Activity.this.finish();
+        overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
     }
 
     public void onLoginFailed() {

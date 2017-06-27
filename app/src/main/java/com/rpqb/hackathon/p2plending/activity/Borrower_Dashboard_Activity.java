@@ -81,7 +81,8 @@ public class Borrower_Dashboard_Activity extends AppCompatActivity {
     public void init() {
         Log.d(TAG, "Dashboard Init");
         toolbar = (Toolbar) findViewById(R.id.borrower_dashboard_toolbar);
-        toolbar.setTitle(R.string.dashboard_toolbarText);
+        toolbar.setTitle("Borrower " +
+                "" + getResources().getString(R.string.dashboard_toolbarText));
         setSupportActionBar(toolbar);
 
         mP2PLendingAPIService = ApiClient.getP2PLendingAPIService();

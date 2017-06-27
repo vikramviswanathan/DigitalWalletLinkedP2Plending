@@ -1,13 +1,16 @@
 package com.rpqb.hackathon.p2plending.activity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.EditText;
 
 import com.rpqb.hackathon.p2plending.R;
 import com.rpqb.hackathon.p2plending.adapter.Lendor_Dashboard_Adapter;
@@ -31,6 +34,7 @@ public class Lendor_Dashboard_Activity extends AppCompatActivity {
     Toolbar toolbar;
     private ArrayList<Project> projectList = new ArrayList<Project>();
     private P2PLendingAPI mP2PLendingAPIService;
+    private String m_Text = "";
 
     @BindView(R.id.lendor_dashboard_recyclerList)
     RecyclerView mRecylerView;
@@ -54,7 +58,33 @@ public class Lendor_Dashboard_Activity extends AppCompatActivity {
     Lendor_Dashboard_Adapter.OnItemClickListener onItemClickListener = new Lendor_Dashboard_Adapter.OnItemClickListener() {
         @Override
         public void onItemClick(View view) {
-            Toast.makeText(Lendor_Dashboard_Activity.this, "Clicked ", Toast.LENGTH_SHORT).show();
+            // Toast.makeText(Lendor_Dashboard_Activity.this, "Clicked ", Toast.LENGTH_SHORT).show();
+            AlertDialog.Builder builder = new AlertDialog.Builder(Lendor_Dashboard_Activity.this,
+                    R.style.AppTheme_Dark_Blue_Dialog);
+            builder.setTitle("Post Bid");
+
+            // Set up the input
+            final EditText input = new EditText(Lendor_Dashboard_Activity.this);
+            // Specify the type of input expected; this, for example, sets the input as a password,
+            // and will mask the text
+            input.setInputType(InputType.TYPE_CLASS_TEXT);
+            builder.setView(input);
+
+            // Set up the buttons
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    m_Text = input.getText().toString();
+                }
+            });
+            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                }
+            });
+
+            builder.show();
         }
     };
 
@@ -64,7 +94,7 @@ public class Lendor_Dashboard_Activity extends AppCompatActivity {
     public void init() {
         Log.d(TAG, "Dashboard Init");
         toolbar = (Toolbar) findViewById(R.id.lendor_dashboard_toolbar);
-        toolbar.setTitle(R.string.dashboard_toolbarText);
+        toolbar.setTitle("Lendor " + getResources().getString(R.string.dashboard_toolbarText));
         setSupportActionBar(toolbar);
 
         mP2PLendingAPIService = ApiClient.getP2PLendingAPIService();

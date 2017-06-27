@@ -10,19 +10,15 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.rpqb.hackathon.p2plending.R;
-import com.rpqb.hackathon.p2plending.adapter.Dashboard_Adapter;
+import com.rpqb.hackathon.p2plending.adapter.Lendor_Dashboard_Adapter;
 import com.rpqb.hackathon.p2plending.model.Project;
 import com.rpqb.hackathon.p2plending.rest.ApiClient;
 import com.rpqb.hackathon.p2plending.rest.P2PLendingAPI;
-import com.rpqb.hackathon.p2plending.transferobject.ProjectTO;
 
 import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 /**
  * Created by Vikramv on 6/7/2017.
@@ -31,7 +27,7 @@ import retrofit2.Response;
 public class Lendor_Dashboard_Activity extends AppCompatActivity {
     private final String TAG = this.getClass().getSimpleName();
     private StaggeredGridLayoutManager mStaggeredGridLayoutManager;
-    private Dashboard_Adapter dashboardAdapter;
+    private Lendor_Dashboard_Adapter dashboardAdapter;
     Toolbar toolbar;
     private ArrayList<Project> projectList = new ArrayList<Project>();
     private P2PLendingAPI mP2PLendingAPIService;
@@ -50,12 +46,12 @@ public class Lendor_Dashboard_Activity extends AppCompatActivity {
         mStaggeredGridLayoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
         mRecylerView.setLayoutManager(mStaggeredGridLayoutManager);
 
-        dashboardAdapter = new Dashboard_Adapter(this, projectList);
+        dashboardAdapter = new Lendor_Dashboard_Adapter(this, projectList);
         mRecylerView.setAdapter(dashboardAdapter);
         dashboardAdapter.setmItemClickListener(onItemClickListener);
     }
 
-    Dashboard_Adapter.OnItemClickListener onItemClickListener = new Dashboard_Adapter.OnItemClickListener() {
+    Lendor_Dashboard_Adapter.OnItemClickListener onItemClickListener = new Lendor_Dashboard_Adapter.OnItemClickListener() {
         @Override
         public void onItemClick(View view) {
             Toast.makeText(Lendor_Dashboard_Activity.this, "Clicked ", Toast.LENGTH_SHORT).show();
@@ -72,7 +68,12 @@ public class Lendor_Dashboard_Activity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         mP2PLendingAPIService = ApiClient.getP2PLendingAPIService();
-        Call mCall = mP2PLendingAPIService.getCampaignList();
+        for (int counter = 0; counter < 5; counter++) {
+            Project project = new Project("active", 4232, "r@r.com", "save me", "short discription",
+                    100000, 7.80, 60);
+            projectList.add(project);
+        }
+        /*Call mCall = mP2PLendingAPIService.getCampaignList();
         mCall.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
@@ -95,6 +96,6 @@ public class Lendor_Dashboard_Activity extends AppCompatActivity {
             public void onFailure(Call call, Throwable t) {
                 Log.d(TAG, "Network call failure to fetch Campaign List");
             }
-        });
+        });*/
     }
 }

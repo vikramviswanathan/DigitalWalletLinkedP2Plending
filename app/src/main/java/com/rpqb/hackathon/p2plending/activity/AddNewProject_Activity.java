@@ -167,7 +167,7 @@ public class AddNewProject_Activity extends AppCompatActivity implements Adapter
         rateOfInterest = Float.parseFloat(edTxtROI.getText().toString());
         noOfInstallments = Integer.parseInt(spinNoOfInstallments.getSelectedItem().toString());
 
-        Project projectDetails = new Project(userID, title, description, amount,
+        Project projectDetails = new Project("", 0, userID, title, description, amount,
                 rateOfInterest, noOfInstallments);
 
         Log.d(TAG, "Post Create Campaign: " + userID + " " + title + " " + description

@@ -12,19 +12,15 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.rpqb.hackathon.p2plending.R;
-import com.rpqb.hackathon.p2plending.adapter.Dashboard_Adapter;
+import com.rpqb.hackathon.p2plending.adapter.Borrower_Dashboard_Adapter;
 import com.rpqb.hackathon.p2plending.model.Project;
 import com.rpqb.hackathon.p2plending.rest.ApiClient;
 import com.rpqb.hackathon.p2plending.rest.P2PLendingAPI;
-import com.rpqb.hackathon.p2plending.transferobject.ProjectTO;
 
 import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 /**
  * Created by Vikramv on 6/23/2017.
@@ -33,7 +29,7 @@ import retrofit2.Response;
 public class Borrower_Dashboard_Activity extends AppCompatActivity {
     private final String TAG = this.getClass().getSimpleName();
     private StaggeredGridLayoutManager mStaggeredGridLayoutManager;
-    private Dashboard_Adapter dashboardAdapter;
+    private Borrower_Dashboard_Adapter dashboardAdapter;
     Toolbar toolbar;
     private ArrayList<Project> projectList = new ArrayList<Project>();
     private P2PLendingAPI mP2PLendingAPIService;
@@ -54,7 +50,7 @@ public class Borrower_Dashboard_Activity extends AppCompatActivity {
         mStaggeredGridLayoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
         mRecylerView.setLayoutManager(mStaggeredGridLayoutManager);
 
-        dashboardAdapter = new Dashboard_Adapter(this, projectList);
+        dashboardAdapter = new Borrower_Dashboard_Adapter(this, projectList);
         mRecylerView.setAdapter(dashboardAdapter);
         dashboardAdapter.setmItemClickListener(onItemClickListener);
         fabAddProject.setOnClickListener(new View.OnClickListener() {
@@ -72,7 +68,7 @@ public class Borrower_Dashboard_Activity extends AppCompatActivity {
         });
     }
 
-    Dashboard_Adapter.OnItemClickListener onItemClickListener = new Dashboard_Adapter.OnItemClickListener() {
+    Borrower_Dashboard_Adapter.OnItemClickListener onItemClickListener = new Borrower_Dashboard_Adapter.OnItemClickListener() {
         @Override
         public void onItemClick(View view) {
             Toast.makeText(Borrower_Dashboard_Activity.this, "Clicked ", Toast.LENGTH_SHORT).show();
@@ -89,7 +85,12 @@ public class Borrower_Dashboard_Activity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         mP2PLendingAPIService = ApiClient.getP2PLendingAPIService();
-        Call mCall = mP2PLendingAPIService.getCampaignList();
+        for (int counter = 0; counter < 2; counter++) {
+            Project project = new Project("active", 4232, "r@r.com", "save me", "short discription",
+                    10000, 7.80, 60);
+            projectList.add(project);
+        }
+        /*Call mCall = mP2PLendingAPIService.getCampaignList();
         mCall.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
@@ -110,8 +111,7 @@ public class Borrower_Dashboard_Activity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call call, Throwable t) {
-
             }
-        });
+        });*/
     }
 }

@@ -12,6 +12,8 @@
     <dimen name="common_toolbar_marginTop">58dp</dimen>
     <dimen name="common_commonEdTxt_marginBottom">8dp</dimen>
     <dimen name="common_commonEdTxt_marginTop">8dp</dimen>
+    <dimen name="common_gridItemPaddingRight">10dp</dimen>
+    <dimen name="common_gridItemPaddingLeft">10dp</dimen>
 
     <!-- Login Screen -->
     <dimen name="loginscreen_paddingLeft">24dp</dimen>
@@ -40,7 +42,6 @@
     <dimen name="dashboard_cardElevation">1dp</dimen>
     <dimen name="dashboard_cardCornerRadius">0dp</dimen>
     <dimen name="dashboard_relativeHeight">45dp</dimen>
-    <dimen name="dashboard_projectTitlePaddingLeft">10dp</dimen>
     <dimen name="dashboard_floatingActionButtonMargin">16dp</dimen>
 
     <!-- Add New Project Screen -->

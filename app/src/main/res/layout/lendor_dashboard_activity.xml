@@ -22,6 +22,5 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/lendor_dashboard_recyclerList"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary" />
+        android:layout_height="wrap_content" />
 </android.support.design.widget.CoordinatorLayout>

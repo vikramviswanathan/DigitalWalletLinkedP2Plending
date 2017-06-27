@@ -5,15 +5,19 @@ package com.rpqb.hackathon.p2plending.model;
  */
 
 public class Project {
+    private String status;
+    private int id;
     private String userid;
     private String title;
     private String description;
     private int loanamount;
-    private float interest;
+    private double interest;
     private int noOfTerms;
 
-    public Project(String userid, String title, String description, int loanamount,
-                   float interest, int noOfTerms) {
+    public Project(String status, int id, String userid, String title, String description, int loanamount,
+                   double interest, int noOfTerms) {
+        this.status = status;
+        this.id = id;
         this.userid = userid;
         this.title = title;
         this.description = description;
@@ -23,6 +27,22 @@ public class Project {
     }
 
     public Project() {
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getUserid() {
@@ -57,11 +77,11 @@ public class Project {
         this.loanamount = loanamount;
     }
 
-    public float getInterest() {
+    public double getInterest() {
         return interest;
     }
 
-    public void setInterest(float interest) {
+    public void setInterest(double interest) {
         this.interest = interest;
     }
 

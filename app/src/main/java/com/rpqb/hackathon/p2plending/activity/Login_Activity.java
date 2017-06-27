@@ -97,7 +97,7 @@ public class Login_Activity extends AppCompatActivity {
         progressDialog.setMessage(getResources().getString(R.string.loginscreen_loaderText));
         progressDialog.show();
 
-        String email = edtTxt_login.getText().toString();
+        final String email = edtTxt_login.getText().toString();
         String password = edtTxt_Password.getText().toString();
 
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -109,21 +109,30 @@ public class Login_Activity extends AppCompatActivity {
                 new Runnable() {
                     public void run() {
                         // On complete call either onLoginSuccess or onLoginFailed
-                        onLoginSuccess();
+                        onLoginSuccess(email);
                         // onLoginFailed();
                         progressDialog.dismiss();
                     }
                 }, 3000);
     }
 
-    public void onLoginSuccess() {
+    public void onLoginSuccess(String email) {
         btnLogin.setEnabled(true);
-        Intent intent = new Intent(Login_Activity.this,
-                Borrower_Dashboard_Activity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-        startActivity(intent);
-        Login_Activity.this.finish();
-        overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+        if (email.equalsIgnoreCase("l@l.com")) {
+            Intent intent = new Intent(Login_Activity.this,
+                    Lendor_Dashboard_Activity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            startActivity(intent);
+            Login_Activity.this.finish();
+            overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+        } else {
+            Intent intent = new Intent(Login_Activity.this,
+                    Borrower_Dashboard_Activity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            startActivity(intent);
+            Login_Activity.this.finish();
+            overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+        }
     }
 
     public void onLoginFailed() {

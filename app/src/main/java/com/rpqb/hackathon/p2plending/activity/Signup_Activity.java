@@ -179,10 +179,10 @@ public class Signup_Activity extends AppCompatActivity {
                 + userUpi);
 
         mP2PLendingAPIService = ApiClient.getP2PLendingAPIService();
-        Call mCall = mP2PLendingAPIService.registerUser(userDetails);
-        mCall.enqueue(new Callback() {
+        Call<ResponseTO> mCall = mP2PLendingAPIService.registerUser(userDetails);
+        mCall.enqueue(new Callback<ResponseTO>() {
             @Override
-            public void onResponse(Call call, Response response) {
+            public void onResponse(Call<ResponseTO> call, Response<ResponseTO> response) {
                 Log.d(TAG, "Register User Response: " + response.body());
                 ResponseTO jsonResponse = (ResponseTO) response.body();
                 progressDialog.hide();
@@ -190,7 +190,7 @@ public class Signup_Activity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call call, Throwable t) {
+            public void onFailure(Call<ResponseTO> call, Throwable t) {
                 progressDialog.hide();
                 onSignUpFailed();
                 call.cancel();
@@ -306,18 +306,23 @@ public class Signup_Activity extends AppCompatActivity {
      * Method to display toast message for SignUp failure.
      */
     public void onSignUpFailed() {
-        Toast.makeText(getBaseContext(), "SignUp failed", Toast.LENGTH_LONG).show();
+        //Toast.makeText(getBaseContext(), "SignUp failed", Toast.LENGTH_LONG).show();
         btnSignUp.setEnabled(true);
+        Intent intent = new Intent(Signup_Activity.this,
+                Login_Activity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        startActivity(intent);
+        Signup_Activity.this.finish();
     }
 
     /**
      * Method for handling Success signup scenario.
      */
-    public void onSignUpSuccess(ResponseTO response) {
+    public void onSignUpSuccess(ResponseTO jsonResponse) {
         btnSignUp.setEnabled(true);
-        Log.d(TAG, "Success Response: " + response);
+        Log.d(TAG, "Success Response: " + jsonResponse);
 
-        if (response.getResponseStatus() == Constants.CREATED) {
+        if (jsonResponse.getResponseStatus() == Constants.CREATED) {
             Intent intent = new Intent(Signup_Activity.this,
                     Login_Activity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);

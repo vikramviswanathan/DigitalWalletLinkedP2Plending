@@ -1,5 +1,6 @@
 package com.rpqb.hackathon.p2plending.activity;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -17,11 +18,18 @@ import com.rpqb.hackathon.p2plending.adapter.Lendor_Dashboard_Adapter;
 import com.rpqb.hackathon.p2plending.model.Project;
 import com.rpqb.hackathon.p2plending.rest.ApiClient;
 import com.rpqb.hackathon.p2plending.rest.P2PLendingAPI;
+import com.rpqb.hackathon.p2plending.transferobject.BodyTO;
+import com.rpqb.hackathon.p2plending.transferobject.ProjectTO;
+import com.rpqb.hackathon.p2plending.transferobject.ProjectTOBody;
+import com.rpqb.hackathon.p2plending.transferobject.ResponseTOCampaign;
 
 import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by Vikramv on 6/7/2017.
@@ -45,14 +53,6 @@ public class Lendor_Dashboard_Activity extends AppCompatActivity {
         setContentView(R.layout.lendor_dashboard_activity);
         init();
         ButterKnife.bind(this);
-
-        // for one column grid layout
-        mStaggeredGridLayoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
-        mRecylerView.setLayoutManager(mStaggeredGridLayoutManager);
-
-        dashboardAdapter = new Lendor_Dashboard_Adapter(this, projectList);
-        mRecylerView.setAdapter(dashboardAdapter);
-        dashboardAdapter.setmItemClickListener(onItemClickListener);
     }
 
     Lendor_Dashboard_Adapter.OnItemClickListener onItemClickListener = new Lendor_Dashboard_Adapter.OnItemClickListener() {
@@ -98,16 +98,22 @@ public class Lendor_Dashboard_Activity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         mP2PLendingAPIService = ApiClient.getP2PLendingAPIService();
-        for (int counter = 0; counter < 5; counter++) {
-            Project project = new Project("active", 4232, "r@r.com", "save me", "short discription",
-                    100000, 7.80, 60);
-            projectList.add(project);
-        }
-        /*Call mCall = mP2PLendingAPIService.getCampaignList();
-        mCall.enqueue(new Callback() {
+        final ProgressDialog progressDialog = new ProgressDialog(Lendor_Dashboard_Activity.this,
+                R.style.AppTheme_Dark_Blue_Dialog);
+        progressDialog.setIndeterminate(true);
+        progressDialog.setMessage(getResources().getString(R.string.dashboard_loaderText));
+        progressDialog.show();
+
+        Call<ResponseTOCampaign> mCall = mP2PLendingAPIService.getCampaignList();
+        mCall.enqueue(new Callback<ResponseTOCampaign>() {
             @Override
-            public void onResponse(Call call, Response response) {
-                ArrayList<ProjectTO> projectTOList = (ArrayList<ProjectTO>) response.body();
+            public void onResponse(Call<ResponseTOCampaign> call, Response<ResponseTOCampaign> response) {
+                ResponseTOCampaign responseTOCampaign = response.body();
+                ProjectTOBody projectTOBody = responseTOCampaign.getCampaignlist();
+                BodyTO bodyTO = projectTOBody.getBody();
+
+                ArrayList<ProjectTO> projectTOList = bodyTO.getCampaignlist();
+
                 for (ProjectTO projectTO : projectTOList) {
                     Project project = new Project();
                     project.setUserid(projectTO.getUserid());
@@ -120,12 +126,19 @@ public class Lendor_Dashboard_Activity extends AppCompatActivity {
                     projectList.add(project);
                 }
                 Log.d(TAG, "CampaignList Size: " + projectList.size());
+                // for one column grid layout
+                mStaggeredGridLayoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
+                mRecylerView.setLayoutManager(mStaggeredGridLayoutManager);
+
+                dashboardAdapter = new Lendor_Dashboard_Adapter(Lendor_Dashboard_Activity.this, projectList);
+                mRecylerView.setAdapter(dashboardAdapter);
+                dashboardAdapter.setmItemClickListener(onItemClickListener);
+                progressDialog.dismiss();
             }
 
             @Override
-            public void onFailure(Call call, Throwable t) {
-                Log.d(TAG, "Network call failure to fetch Campaign List");
+            public void onFailure(Call<ResponseTOCampaign> call, Throwable t) {
             }
-        });*/
+        });
     }
 }

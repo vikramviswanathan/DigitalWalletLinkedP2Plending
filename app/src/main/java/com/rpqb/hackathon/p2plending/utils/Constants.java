@@ -19,9 +19,9 @@ public class Constants {
     // Campaign status
     public static final String ACTIVE = "Active";
 
-    // Development API BASE_URL
+    // Development API BASE_URL (Bluemix)
+    public static final String BASE_URL = "http://119.81.218.178:8080/";
     // public static final String BASE_URL = "http://192.168.0.24:3001/";
-    public static final String BASE_URL = "http://192.168.0.24:3001/";
 
     // JSON Response status
     public static final int CREATED = 201;

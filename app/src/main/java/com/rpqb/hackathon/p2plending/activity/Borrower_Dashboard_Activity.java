@@ -16,11 +16,18 @@ import com.rpqb.hackathon.p2plending.adapter.Borrower_Dashboard_Adapter;
 import com.rpqb.hackathon.p2plending.model.Project;
 import com.rpqb.hackathon.p2plending.rest.ApiClient;
 import com.rpqb.hackathon.p2plending.rest.P2PLendingAPI;
+import com.rpqb.hackathon.p2plending.transferobject.BodyTO;
+import com.rpqb.hackathon.p2plending.transferobject.ProjectTO;
+import com.rpqb.hackathon.p2plending.transferobject.ProjectTOBody;
+import com.rpqb.hackathon.p2plending.transferobject.ResponseTOCampaign;
 
 import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by Vikramv on 6/23/2017.
@@ -86,16 +93,16 @@ public class Borrower_Dashboard_Activity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         mP2PLendingAPIService = ApiClient.getP2PLendingAPIService();
-        for (int counter = 0; counter < 2; counter++) {
-            Project project = new Project("active", 4232, "r@r.com", "save me", "short discription",
-                    10000, 7.80, 60);
-            projectList.add(project);
-        }
-        /*Call mCall = mP2PLendingAPIService.getCampaignList();
+        Call mCall = mP2PLendingAPIService.getCampaignList();
         mCall.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
-                ArrayList<ProjectTO> projectTOList = (ArrayList<ProjectTO>) response.body();
+                ResponseTOCampaign responseTOCampaign = (ResponseTOCampaign) response.body();
+                ProjectTOBody projectTOBody = responseTOCampaign.getCampaignlist();
+                BodyTO bodyTO = projectTOBody.getBody();
+
+                ArrayList<ProjectTO> projectTOList = bodyTO.getCampaignlist();
+
                 for (ProjectTO projectTO : projectTOList) {
                     Project project = new Project();
                     project.setUserid(projectTO.getUserid());
@@ -113,6 +120,6 @@ public class Borrower_Dashboard_Activity extends AppCompatActivity {
             @Override
             public void onFailure(Call call, Throwable t) {
             }
-        });*/
+        });
     }
 }

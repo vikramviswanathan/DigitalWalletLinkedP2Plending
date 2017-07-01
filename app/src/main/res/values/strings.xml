@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Digital Wallet Linked P2P lending</string>
+    <string name="app_name">Rapid Credit</string>
     <string name="common_passwordHint">Password</string>
     <string name="common_emailError">Enter a valid email address</string>
     <string name="common_passwordError">Between 4 and 10 alphanumeric characters</string>
@@ -37,6 +37,7 @@
 
     <!-- Dashboard Screen -->
     <string name="dashboard_toolbarText">Dashboard</string>
+    <string name="dashboard_loaderText">Loading...</string>
 
     <!-- Add New Project -->
     <string name="addnewproject_toolbarText">Create Campaign</string>

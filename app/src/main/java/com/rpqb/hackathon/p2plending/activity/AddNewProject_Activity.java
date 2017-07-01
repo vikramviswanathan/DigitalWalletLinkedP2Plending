@@ -174,23 +174,23 @@ public class AddNewProject_Activity extends AppCompatActivity implements Adapter
                 + " " + amount + " " + rateOfInterest + " " + noOfInstallments);
 
         mP2PLendingAPIService = ApiClient.getP2PLendingAPIService();
-        Call mCall = mP2PLendingAPIService.addNewProject(projectDetails);
+        /*Call mCall = mP2PLendingAPIService.addNewProject(projectDetails);
         mCall.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
                 Log.d(TAG, "Create Campaign Response: " + response.body());
                 ResponseTO jsonResponse = (ResponseTO) response.body();
-                progressDialog.hide();
-                onAddProjectSuccess(jsonResponse);
-            }
+                progressDialog.hide();*/
+                onAddProjectSuccess();
+            //}
 
-            @Override
+            /*@Override
             public void onFailure(Call call, Throwable t) {
                 progressDialog.hide();
                 onAddProjectFailed();
                 call.cancel();
             }
-        });
+        });*/
     }
 
     /**
@@ -278,17 +278,17 @@ public class AddNewProject_Activity extends AppCompatActivity implements Adapter
     /**
      * Method for handling Success add new project scenario.
      */
-    public void onAddProjectSuccess(ResponseTO response) {
+    public void onAddProjectSuccess() {
         btnAddProject.setEnabled(true);
-        Log.d(TAG, "Success Response: " + response);
+        //Log.d(TAG, "Success Response: " + response);
 
-        if (response.getResponseStatus() == Constants.CREATED) {
+       // if (response.getResponseStatus() == Constants.CREATED) {
             Intent intent = new Intent(AddNewProject_Activity.this,
                     Borrower_Dashboard_Activity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(intent);
             AddNewProject_Activity.this.finish();
-        }
+        //}
     }
 
     public void activateError() {

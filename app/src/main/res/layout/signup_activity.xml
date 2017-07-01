@@ -33,7 +33,7 @@
             android:cropToPadding="false"
             android:paddingLeft="@dimen/common_paddingLeft"
             android:paddingRight="@dimen/common_paddingRight"
-            android:src="@drawable/rbl_logo"
+            android:src="@drawable/rapidqube_logo"
             tools:ignore="ContentDescription" />
 
         <!-- User Type -->

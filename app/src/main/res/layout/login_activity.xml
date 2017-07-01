@@ -17,7 +17,15 @@
             android:layout_height="@dimen/common_logo_height"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="@dimen/common_logo_marginBottom"
-            android:src="@drawable/rbl_logo" />
+            android:src="@drawable/rapidqube_logo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/common_logo_marginBottom"
+            android:text="@string/app_name"
+            android:textSize="@dimen/signup_login_textSize" />
 
         <!-- Email -->
         <android.support.design.widget.TextInputLayout

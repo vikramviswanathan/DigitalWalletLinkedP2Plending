@@ -1,22 +1,38 @@
 package com.rpqb.hackathon.p2plending.transferobject;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by Vikramv on 6/16/2017.
  */
 
 public class ProjectTO {
+    @SerializedName("status")
     private String status;
-    private int id;
+    @SerializedName("id")
+    private Integer id;
+    @SerializedName("userid")
     private String userid;
+    @SerializedName("title")
     private String title;
+    @SerializedName("description")
     private String description;
-    private int loanamount;
-    private float interest;
-    private int noOfTerms;
-    private int notermsremaining;
+    @SerializedName("loanamount")
+    private Integer loanamount;
+    @SerializedName("interest")
+    private Double interest;
+    @SerializedName("noOfTerms")
+    private Integer noOfTerms;
+    @SerializedName("bidlist")
+    private String bidlist;
+    @SerializedName("bidinfo")
+    private BidInfoTO bidinfo;
+    @SerializedName("notermsremaining")
+    private Integer notermsremaining;
 
-    public ProjectTO(String status, int id, String userid, String title, String description,
-                     int loanamount, float interest, int noOfTerms, int notermsremaining) {
+    public ProjectTO(String status, Integer id, String userid, String title, String description,
+                     Integer loanamount, Double interest, Integer noOfTerms, String bidlist,
+                     BidInfoTO bidinfo, Integer notermsremaining) {
         this.status = status;
         this.id = id;
         this.userid = userid;
@@ -25,6 +41,8 @@ public class ProjectTO {
         this.loanamount = loanamount;
         this.interest = interest;
         this.noOfTerms = noOfTerms;
+        this.bidlist = bidlist;
+        this.bidinfo = bidinfo;
         this.notermsremaining = notermsremaining;
     }
 
@@ -36,11 +54,11 @@ public class ProjectTO {
         this.status = status;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -68,35 +86,51 @@ public class ProjectTO {
         this.description = description;
     }
 
-    public int getLoanamount() {
+    public Integer getLoanamount() {
         return loanamount;
     }
 
-    public void setLoanamount(int loanamount) {
+    public void setLoanamount(Integer loanamount) {
         this.loanamount = loanamount;
     }
 
-    public float getInterest() {
+    public Double getInterest() {
         return interest;
     }
 
-    public void setInterest(float interest) {
+    public void setInterest(Double interest) {
         this.interest = interest;
     }
 
-    public int getNoOfTerms() {
+    public Integer getNoOfTerms() {
         return noOfTerms;
     }
 
-    public void setNoOfTerms(int noOfTerms) {
+    public void setNoOfTerms(Integer noOfTerms) {
         this.noOfTerms = noOfTerms;
     }
 
-    public int getNotermsremaining() {
+    public String getBidlist() {
+        return bidlist;
+    }
+
+    public void setBidlist(String bidlist) {
+        this.bidlist = bidlist;
+    }
+
+    public BidInfoTO getBidinfo() {
+        return bidinfo;
+    }
+
+    public void setBidinfo(BidInfoTO bidinfo) {
+        this.bidinfo = bidinfo;
+    }
+
+    public Integer getNotermsremaining() {
         return notermsremaining;
     }
 
-    public void setNotermsremaining(int notermsremaining) {
+    public void setNotermsremaining(Integer notermsremaining) {
         this.notermsremaining = notermsremaining;
     }
 }

@@ -55,4 +55,7 @@
     <string name="addnewproject_termsOfRepaymentError">Choose a valid Terms of Repayment</string>
     <string name="addnewproject_noOfInstallmentsError">Choose a valid Installment tenure</string>
     <string name="addnewproject_amountError">Enter a valid amount</string>
+
+    <!-- Menu Item -->
+    <string name="menu_logout">Logout</string>
 </resources>

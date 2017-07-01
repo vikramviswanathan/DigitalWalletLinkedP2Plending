@@ -8,6 +8,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -73,6 +75,29 @@ public class Borrower_Dashboard_Activity extends AppCompatActivity {
                 overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_item, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_logout:
+                Intent intent = new Intent(Borrower_Dashboard_Activity.this,
+                        Login_Activity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intent);
+                Borrower_Dashboard_Activity.this.finish();
+                overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     Borrower_Dashboard_Adapter.OnItemClickListener onItemClickListener = new Borrower_Dashboard_Adapter.OnItemClickListener() {

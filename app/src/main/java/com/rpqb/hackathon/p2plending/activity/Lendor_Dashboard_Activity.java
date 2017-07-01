@@ -2,6 +2,7 @@ package com.rpqb.hackathon.p2plending.activity;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,8 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.text.InputType;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
@@ -53,6 +56,29 @@ public class Lendor_Dashboard_Activity extends AppCompatActivity {
         setContentView(R.layout.lendor_dashboard_activity);
         init();
         ButterKnife.bind(this);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_item, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_logout:
+                Intent intent = new Intent(Lendor_Dashboard_Activity.this,
+                        Login_Activity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intent);
+                Lendor_Dashboard_Activity.this.finish();
+                overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     Lendor_Dashboard_Adapter.OnItemClickListener onItemClickListener = new Lendor_Dashboard_Adapter.OnItemClickListener() {

@@ -60,7 +60,7 @@
                 android:maxLength="2000"
                 android:scrollHorizontally="false"
                 android:textColor="@color/black"
-                android:textColorHint="@color/black"/>
+                android:textColorHint="@color/black" />
         </android.support.design.widget.TextInputLayout>
 
         <!-- Amount -->
@@ -81,7 +81,7 @@
                 android:hint="@string/addnewproject_amountHint"
                 android:inputType="number"
                 android:textColor="@color/black"
-                android:textColorHint="@color/black"/>
+                android:textColorHint="@color/black" />
         </android.support.design.widget.TextInputLayout>
 
         <!-- Rate of Interest -->
@@ -101,7 +101,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/addnewproject_roiHint"
                 android:textColor="@color/black"
-                android:textColorHint="@color/black"/>
+                android:textColorHint="@color/black" />
         </android.support.design.widget.TextInputLayout>
 
         <!-- Terms of Repayment -->
@@ -118,8 +118,7 @@
             app:ms_enableFloatingLabel="false"
             app:ms_errorColor="@color/white"
             app:ms_hint="@string/addnewproject_spinnerTermsOfRepaymentHint"
-            app:ms_hintColor="@color/black"
-            android:textColorHint="@color/black"/>
+            app:ms_hintColor="@color/iron" />
 
         <!-- No. of installments -->
         <fr.ganfra.materialspinner.MaterialSpinner
@@ -134,9 +133,8 @@
             app:ms_enableErrorLabel="true"
             app:ms_enableFloatingLabel="false"
             app:ms_errorColor="@color/white"
-            app:ms_hint="@string/addnewproject_spinnerTermsOfRepaymentHint"
-            app:ms_hintColor="@color/black"
-            android:textColorHint="@color/black"/>
+            app:ms_hint="@string/addnewproject_spinnerNoOfInstallmentsHint"
+            app:ms_hintColor="@color/iron" />
 
         <!-- Create Campaign Button -->
         <android.support.v7.widget.AppCompatButton

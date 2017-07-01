@@ -69,7 +69,6 @@ public class AddNewProject_Activity extends AppCompatActivity implements Adapter
 
         spinnerTermsOfRepaymentAdpater = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, Constants.termsOfRepayment);
-        spinnerTermsOfRepaymentAdpater.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinTermsOfRepayment.setAdapter(spinnerTermsOfRepaymentAdpater);
         spinnerTermsOfRepaymentAdpater.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinTermsOfRepayment.setOnItemSelectedListener(this);

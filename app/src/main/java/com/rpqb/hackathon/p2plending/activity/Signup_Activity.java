@@ -184,7 +184,7 @@ public class Signup_Activity extends AppCompatActivity {
             @Override
             public void onResponse(Call<ResponseTO> call, Response<ResponseTO> response) {
                 Log.d(TAG, "Register User Response: " + response.body());
-                ResponseTO jsonResponse = (ResponseTO) response.body();
+                ResponseTO jsonResponse = response.body();
                 progressDialog.hide();
                 onSignUpSuccess(jsonResponse);
             }

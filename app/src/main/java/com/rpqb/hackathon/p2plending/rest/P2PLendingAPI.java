@@ -1,7 +1,10 @@
 package com.rpqb.hackathon.p2plending.rest;
 
+import com.rpqb.hackathon.p2plending.model.BidInfo;
 import com.rpqb.hackathon.p2plending.model.Project;
 import com.rpqb.hackathon.p2plending.model.User;
+import com.rpqb.hackathon.p2plending.transferobject.BidInfoTO;
+import com.rpqb.hackathon.p2plending.transferobject.ProjectTO;
 import com.rpqb.hackathon.p2plending.transferobject.ResponseTO;
 import com.rpqb.hackathon.p2plending.transferobject.ResponseTOCampaign;
 
@@ -22,5 +25,8 @@ public interface P2PLendingAPI {
     Call<ResponseTOCampaign> getCampaignList();
 
     @POST("campaign/create")
-    Call<Project> addNewProject(@Body Project projectDetails);
+    Call<ProjectTO> addNewProject(@Body ProjectTO projectTODetails);
+
+    @POST("campaign/postbid")
+    Call<ResponseTO> postBid(@Body BidInfoTO bidInfoTODetails);
 }

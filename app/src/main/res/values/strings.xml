@@ -41,6 +41,7 @@
     <string name="dashboard_dialogPostBid">Submit Bid</string>
     <string name="dashboard_dialogOk">OK</string>
     <string name="dashboard_dialogCancel">Cancel</string>
+    <string name="dashboard_dialogPostLoaderText">Posting Bid...</string>
 
     <!-- Add New Project -->
     <string name="addnewproject_toolbarText">Create Campaign</string>

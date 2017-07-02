@@ -16,7 +16,7 @@ public class BidInfoTO {
     @SerializedName("userid")
     private String userid;
     @SerializedName("quote")
-    private Integer quote;
+    private Double quote;
 
     public Integer getId() {
         return id;
@@ -50,11 +50,11 @@ public class BidInfoTO {
         this.userid = userid;
     }
 
-    public Integer getQuote() {
+    public Double getQuote() {
         return quote;
     }
 
-    public void setQuote(Integer quote) {
+    public void setQuote(Double quote) {
         this.quote = quote;
     }
 }

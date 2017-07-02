@@ -273,6 +273,8 @@ public class AddNewProject_Activity extends AppCompatActivity implements Adapter
         btnAddProject.setEnabled(true);
         //Log.d(TAG, "Success Response: " + response);
 
+        Toast.makeText(AddNewProject_Activity.this, "Campaign Created Successfully",
+                Toast.LENGTH_LONG).show();
         // if (response.getResponseStatus() == Constants.CREATED) {
         Intent intent = new Intent(AddNewProject_Activity.this,
                 Borrower_Dashboard_Activity.class);

@@ -38,6 +38,9 @@
     <!-- Dashboard Screen -->
     <string name="dashboard_toolbarText">Dashboard</string>
     <string name="dashboard_loaderText">Loading...</string>
+    <string name="dashboard_dialogPostBid">Submit Bid</string>
+    <string name="dashboard_dialogOk">OK</string>
+    <string name="dashboard_dialogCancel">Cancel</string>
 
     <!-- Add New Project -->
     <string name="addnewproject_toolbarText">Create Campaign</string>

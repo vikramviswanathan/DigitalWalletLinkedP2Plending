@@ -2,6 +2,8 @@ package com.rpqb.hackathon.p2plending.transferobject;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
+
 /**
  * Created by Vikramv on 6/16/2017.
  */
@@ -24,14 +26,14 @@ public class ProjectTO {
     @SerializedName("noOfTerms")
     private Integer noOfTerms;
     @SerializedName("bidlist")
-    private String bidlist;
+    private ArrayList<BidInfoTO> bidlist;
     @SerializedName("bidinfo")
     private BidInfoTO bidinfo;
     @SerializedName("notermsremaining")
     private Integer notermsremaining;
 
     public ProjectTO(String status, Integer id, String userid, String title, String description,
-                     Integer loanamount, Double interest, Integer noOfTerms, String bidlist,
+                     Integer loanamount, Double interest, Integer noOfTerms, ArrayList<BidInfoTO> bidlist,
                      BidInfoTO bidinfo, Integer notermsremaining) {
         this.status = status;
         this.id = id;
@@ -110,11 +112,11 @@ public class ProjectTO {
         this.noOfTerms = noOfTerms;
     }
 
-    public String getBidlist() {
+    public ArrayList<BidInfoTO> getBidlist() {
         return bidlist;
     }
 
-    public void setBidlist(String bidlist) {
+    public void setBidlist(ArrayList<BidInfoTO> bidlist) {
         this.bidlist = bidlist;
     }
 

@@ -11,16 +11,23 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.text.InputType;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.rpqb.hackathon.p2plending.R;
 import com.rpqb.hackathon.p2plending.adapter.Lendor_Dashboard_Adapter;
+import com.rpqb.hackathon.p2plending.model.BidInfo;
 import com.rpqb.hackathon.p2plending.model.Project;
 import com.rpqb.hackathon.p2plending.rest.ApiClient;
 import com.rpqb.hackathon.p2plending.rest.P2PLendingAPI;
+import com.rpqb.hackathon.p2plending.transferobject.BidInfoTO;
 import com.rpqb.hackathon.p2plending.transferobject.BodyTO;
 import com.rpqb.hackathon.p2plending.transferobject.ProjectTO;
 import com.rpqb.hackathon.p2plending.transferobject.ProjectTOBody;
@@ -45,7 +52,6 @@ public class Lendor_Dashboard_Activity extends AppCompatActivity {
     Toolbar toolbar;
     private ArrayList<Project> projectList = new ArrayList<Project>();
     private P2PLendingAPI mP2PLendingAPIService;
-    private String m_Text = "";
 
     @BindView(R.id.lendor_dashboard_recyclerList)
     RecyclerView mRecylerView;
@@ -84,33 +90,49 @@ public class Lendor_Dashboard_Activity extends AppCompatActivity {
     Lendor_Dashboard_Adapter.OnItemClickListener onItemClickListener = new Lendor_Dashboard_Adapter.OnItemClickListener() {
         @Override
         public void onItemClick(View view) {
-            // Toast.makeText(Lendor_Dashboard_Activity.this, "Clicked ", Toast.LENGTH_SHORT).show();
-            AlertDialog.Builder builder = new AlertDialog.Builder(Lendor_Dashboard_Activity.this,
-                    R.style.AppTheme_Dark_Blue_Dialog);
-            builder.setTitle("Post Bid");
+            final int itemPostion = mRecylerView.getChildLayoutPosition(view);
+            // Toast.makeText(Lendor_Dashboard_Activity.this, "Clicked " + itemPostion, Toast.LENGTH_SHORT).show();
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                    Lendor_Dashboard_Activity.this, R.style.AppTheme_Dark_Blue_Dialog);
+
+            TextView txtVwTitle = new TextView(Lendor_Dashboard_Activity.this);
+            txtVwTitle.setText(getResources().getString(R.string.dashboard_dialogPostBid));
+            txtVwTitle.setGravity(Gravity.CENTER_HORIZONTAL);
+            txtVwTitle.setTextSize(20);
+            alertDialogBuilder.setCustomTitle(txtVwTitle);
 
             // Set up the input
-            final EditText input = new EditText(Lendor_Dashboard_Activity.this);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                    RelativeLayout.LayoutParams.WRAP_CONTENT,
+                    RelativeLayout.LayoutParams.WRAP_CONTENT);
+            layoutParams.setMargins(20, 20, 20, 20);
+            EditText edTxtInput = new EditText(Lendor_Dashboard_Activity.this);
             // Specify the type of input expected; this, for example, sets the input as a password,
             // and will mask the text
-            input.setInputType(InputType.TYPE_CLASS_TEXT);
-            builder.setView(input);
+            edTxtInput.setInputType(InputType.TYPE_CLASS_TEXT);
+            edTxtInput.setLayoutParams(layoutParams);
+            alertDialogBuilder.setView(edTxtInput);
 
             // Set up the buttons
-            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            alertDialogBuilder.setPositiveButton(getResources().getString(
+                    R.string.dashboard_dialogOk), new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    m_Text = input.getText().toString();
+                    dialog.cancel();
+                    
+                    Toast.makeText(Lendor_Dashboard_Activity.this, "Bid Submitted",
+                            Toast.LENGTH_SHORT).show();
                 }
             });
-            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            alertDialogBuilder.setNegativeButton(getResources().getString(
+                    R.string.dashboard_dialogCancel), new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     dialog.cancel();
                 }
             });
 
-            builder.show();
+            alertDialogBuilder.show();
         }
     };
 
@@ -133,30 +155,58 @@ public class Lendor_Dashboard_Activity extends AppCompatActivity {
         Call<ResponseTOCampaign> mCall = mP2PLendingAPIService.getCampaignList();
         mCall.enqueue(new Callback<ResponseTOCampaign>() {
             @Override
-            public void onResponse(Call<ResponseTOCampaign> call, Response<ResponseTOCampaign> response) {
+            public void onResponse(Call<ResponseTOCampaign> call,
+                                   Response<ResponseTOCampaign> response) {
                 ResponseTOCampaign responseTOCampaign = response.body();
                 ProjectTOBody projectTOBody = responseTOCampaign.getCampaignlist();
                 BodyTO bodyTO = projectTOBody.getBody();
-
                 ArrayList<ProjectTO> projectTOList = bodyTO.getCampaignlist();
+                ArrayList<BidInfo> bidInfoList = new ArrayList<BidInfo>();
 
-                for (ProjectTO projectTO : projectTOList) {
-                    Project project = new Project();
-                    project.setUserid(projectTO.getUserid());
-                    project.setDescription(projectTO.getDescription());
-                    project.setInterest(projectTO.getInterest());
-                    project.setTitle(projectTO.getTitle());
-                    project.setNoOfTerms(projectTO.getNoOfTerms());
-                    project.setLoanamount(projectTO.getLoanamount());
+                if (projectTOList != null) {
+                    for (ProjectTO projectTO : projectTOList) {
+                        Project project = new Project();
+                        project.setId(projectTO.getId());
+                        project.setUserid(projectTO.getUserid());
+                        project.setDescription(projectTO.getDescription());
+                        project.setInterest(projectTO.getInterest());
+                        project.setTitle(projectTO.getTitle());
+                        project.setNoOfTerms(projectTO.getNoOfTerms());
+                        project.setLoanamount(projectTO.getLoanamount());
 
-                    projectList.add(project);
+                        BidInfo bidInfo = new BidInfo();
+                        bidInfo.setId(projectTO.getBidinfo().getId());
+                        bidInfo.setBidcreationtime(projectTO.getBidinfo().getBidcreationtime());
+                        bidInfo.setCampaignid(projectTO.getBidinfo().getCampaignid());
+                        bidInfo.setQuote(projectTO.getBidinfo().getQuote());
+                        bidInfo.setUserid(projectTO.getBidinfo().getUserid());
+
+                        if (projectTO.getBidlist() != null) {
+                            for (BidInfoTO bidListTOInfo : projectTO.getBidlist()) {
+                                BidInfo bidListInfo = new BidInfo();
+                                bidListInfo.setId(bidListTOInfo.getId());
+                                bidListInfo.setBidcreationtime(bidListTOInfo.getBidcreationtime());
+                                bidListInfo.setCampaignid(bidListTOInfo.getCampaignid());
+                                bidListInfo.setQuote(bidListTOInfo.getQuote());
+                                bidListInfo.setUserid(bidListTOInfo.getUserid());
+
+                                bidInfoList.add(bidListInfo);
+                            }
+                        }
+                        project.setBidInfo(bidInfo);
+                        project.setBidlist(bidInfoList);
+
+                        projectList.add(project);
+                    }
                 }
                 Log.d(TAG, "CampaignList Size: " + projectList.size());
                 // for one column grid layout
-                mStaggeredGridLayoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
+                mStaggeredGridLayoutManager = new StaggeredGridLayoutManager(1,
+                        StaggeredGridLayoutManager.VERTICAL);
                 mRecylerView.setLayoutManager(mStaggeredGridLayoutManager);
 
-                dashboardAdapter = new Lendor_Dashboard_Adapter(Lendor_Dashboard_Activity.this, projectList);
+                dashboardAdapter = new Lendor_Dashboard_Adapter(Lendor_Dashboard_Activity.this,
+                        projectList);
                 mRecylerView.setAdapter(dashboardAdapter);
                 dashboardAdapter.setmItemClickListener(onItemClickListener);
                 progressDialog.dismiss();

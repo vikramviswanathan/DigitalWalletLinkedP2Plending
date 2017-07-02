@@ -17,18 +17,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.rpqb.hackathon.p2plending.R;
-import com.rpqb.hackathon.p2plending.model.Project;
 import com.rpqb.hackathon.p2plending.rest.ApiClient;
 import com.rpqb.hackathon.p2plending.rest.P2PLendingAPI;
-import com.rpqb.hackathon.p2plending.transferobject.ResponseTO;
 import com.rpqb.hackathon.p2plending.utils.Constants;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import fr.ganfra.materialspinner.MaterialSpinner;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 /**
  * Created by Vikramv on 6/26/2017.
@@ -166,9 +161,6 @@ public class AddNewProject_Activity extends AppCompatActivity implements Adapter
         rateOfInterest = Float.parseFloat(edTxtROI.getText().toString());
         noOfInstallments = Integer.parseInt(spinNoOfInstallments.getSelectedItem().toString());
 
-        Project projectDetails = new Project("", 0, userID, title, description, amount,
-                rateOfInterest, noOfInstallments);
-
         Log.d(TAG, "Post Create Campaign: " + userID + " " + title + " " + description
                 + " " + amount + " " + rateOfInterest + " " + noOfInstallments);
 
@@ -180,8 +172,8 @@ public class AddNewProject_Activity extends AppCompatActivity implements Adapter
                 Log.d(TAG, "Create Campaign Response: " + response.body());
                 ResponseTO jsonResponse = (ResponseTO) response.body();
                 progressDialog.hide();*/
-                onAddProjectSuccess();
-            //}
+        onAddProjectSuccess();
+        //}
 
             /*@Override
             public void onFailure(Call call, Throwable t) {
@@ -281,12 +273,12 @@ public class AddNewProject_Activity extends AppCompatActivity implements Adapter
         btnAddProject.setEnabled(true);
         //Log.d(TAG, "Success Response: " + response);
 
-       // if (response.getResponseStatus() == Constants.CREATED) {
-            Intent intent = new Intent(AddNewProject_Activity.this,
-                    Borrower_Dashboard_Activity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-            startActivity(intent);
-            AddNewProject_Activity.this.finish();
+        // if (response.getResponseStatus() == Constants.CREATED) {
+        Intent intent = new Intent(AddNewProject_Activity.this,
+                Borrower_Dashboard_Activity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        startActivity(intent);
+        AddNewProject_Activity.this.finish();
         //}
     }
 

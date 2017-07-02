@@ -306,13 +306,9 @@ public class Signup_Activity extends AppCompatActivity {
      * Method to display toast message for SignUp failure.
      */
     public void onSignUpFailed() {
-        //Toast.makeText(getBaseContext(), "SignUp failed", Toast.LENGTH_LONG).show();
+        Toast.makeText(getBaseContext(), "SignUp failed. Please try again later.",
+                Toast.LENGTH_LONG).show();
         btnSignUp.setEnabled(true);
-        Intent intent = new Intent(Signup_Activity.this,
-                Login_Activity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-        startActivity(intent);
-        Signup_Activity.this.finish();
     }
 
     /**
@@ -320,7 +316,9 @@ public class Signup_Activity extends AppCompatActivity {
      */
     public void onSignUpSuccess(ResponseTO jsonResponse) {
         btnSignUp.setEnabled(true);
-        Log.d(TAG, "Success Response: " + jsonResponse);
+        Log.d(TAG, "Success Response: " + jsonResponse.getResponseStatus());
+        Toast.makeText(getBaseContext(), "SignUp successfull. Please login.",
+                Toast.LENGTH_LONG).show();
 
         if (jsonResponse.getResponseStatus() == Constants.CREATED) {
             Intent intent = new Intent(Signup_Activity.this,

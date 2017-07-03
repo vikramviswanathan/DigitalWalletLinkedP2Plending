@@ -113,7 +113,7 @@ public class Lendor_Dashboard_Adapter extends RecyclerView.Adapter<Lendor_Dashbo
         Project project = projectList.get(position);
         holder.projectTitle.setText(project.getTitle());
         holder.loanAmount.setText(String.valueOf(project.getLoanamount()));
-        holder.interest.setText(String.valueOf(project.getInterest()) + "%");
+        holder.interest.setText(String.format("%0.2f", String.valueOf(project.getInterest()) + "%"));
         holder.userId.setText(project.getUserid());
     }
 

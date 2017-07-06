@@ -42,12 +42,21 @@
             android:textColor="@android:color/white" />
 
         <TextView
-            android:id="@+id/borrower_dashboard_interest"
+            android:id="@+id/borrower_dashboard_percent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_below="@+id/borrower_dashboard_loanAmount"
             android:paddingRight="@dimen/common_gridItemPaddingRight"
+            android:text="%"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/borrower_dashboard_interest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/borrower_dashboard_loanAmount"
+            android:layout_toLeftOf="@+id/borrower_dashboard_percent"
             android:textColor="@android:color/white" />
 
         <TextView

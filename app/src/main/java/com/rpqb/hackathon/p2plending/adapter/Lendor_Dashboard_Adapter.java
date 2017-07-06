@@ -83,7 +83,8 @@ public class Lendor_Dashboard_Adapter extends RecyclerView.Adapter<Lendor_Dashbo
      */
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.lendor_dashboard_grid_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(
+                R.layout.lendor_dashboard_grid_item, parent, false);
         return new ViewHolder(view);
     }
 
@@ -113,7 +114,7 @@ public class Lendor_Dashboard_Adapter extends RecyclerView.Adapter<Lendor_Dashbo
         Project project = projectList.get(position);
         holder.projectTitle.setText(project.getTitle());
         holder.loanAmount.setText(String.valueOf(project.getLoanamount()));
-        holder.interest.setText(String.format("%0.2f", String.valueOf(project.getInterest()) + "%"));
+        holder.interest.setText(String.format("%.2f", project.getInterest()));
         holder.userId.setText(project.getUserid());
     }
 

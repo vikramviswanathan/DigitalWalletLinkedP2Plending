@@ -39,7 +39,7 @@ public class Borrower_Dashboard_Adapter extends RecyclerView.Adapter<Borrower_Da
         //public CardView dashboard_cardView;
         public LinearLayout linearMainHolder;
         public RelativeLayout relativeListHolder;
-        public TextView projectTitle, loanAmount, interest, userId;
+        public TextView projectTitle, loanAmount, interest, userId, percentSign;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -48,7 +48,9 @@ public class Borrower_Dashboard_Adapter extends RecyclerView.Adapter<Borrower_Da
             relativeListHolder = (RelativeLayout) itemView.findViewById(R.id.borrower_dashboard_relativeListHolder);
             projectTitle = (TextView) itemView.findViewById(R.id.borrower_dashboard_projectTitle);
             loanAmount = (TextView) itemView.findViewById(R.id.borrower_dashboard_loanAmount);
+            percentSign = (TextView) itemView.findViewById(R.id.borrower_dashboard_percent);
             interest = (TextView) itemView.findViewById(R.id.borrower_dashboard_interest);
+
             userId = (TextView) itemView.findViewById(R.id.borrower_dashboard_userId);
             linearMainHolder.setOnClickListener(this);
         }
@@ -113,7 +115,7 @@ public class Borrower_Dashboard_Adapter extends RecyclerView.Adapter<Borrower_Da
         Project project = projectList.get(position);
         holder.projectTitle.setText(project.getTitle());
         holder.loanAmount.setText(String.valueOf(project.getLoanamount()));
-        holder.interest.setText(String.valueOf(project.getInterest()) + "%");
+        holder.interest.setText(String.format("%.2f", project.getInterest()));
         holder.userId.setText(project.getUserid());
     }
 

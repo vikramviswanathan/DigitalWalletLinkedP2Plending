@@ -48,6 +48,8 @@ public class ProjectTO {
         this.notermsremaining = notermsremaining;
     }
 
+    public ProjectTO() {}
+
     public String getStatus() {
         return status;
     }

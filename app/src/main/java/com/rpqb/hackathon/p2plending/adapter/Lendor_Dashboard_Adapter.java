@@ -2,6 +2,7 @@ package com.rpqb.hackathon.p2plending.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,7 +44,7 @@ public class Lendor_Dashboard_Adapter extends RecyclerView.Adapter<Lendor_Dashbo
 
         public ViewHolder(View itemView) {
             super(itemView);
-            //dashboard_cardView = (CardView) itemView.findViewById(R.id.dashboard_cardView);
+            //dashboard_cardView = (CardView) itemView.findViewById(R.id.lendor_dashboard_cardView);
             linearMainHolder = (LinearLayout) itemView.findViewById(R.id.lendor_dashboard_linearMainHolder);
             relativeListHolder = (RelativeLayout) itemView.findViewById(R.id.lendor_dashboard_relativeListHolder);
             projectTitle = (TextView) itemView.findViewById(R.id.lendor_dashboard_projectTitle);
@@ -112,6 +113,7 @@ public class Lendor_Dashboard_Adapter extends RecyclerView.Adapter<Lendor_Dashbo
     public void onBindViewHolder(ViewHolder holder, int position) {
         //holder.dashboard_cardView.setCardBackgroundColor(Color.MAGENTA);
         Project project = projectList.get(position);
+        Log.d(TAG, "Title Adapter: " + project.getTitle());
         holder.projectTitle.setText(project.getTitle());
         holder.loanAmount.setText(String.valueOf(project.getLoanamount()));
         holder.interest.setText(String.format("%.2f", project.getInterest()));
@@ -125,7 +127,7 @@ public class Lendor_Dashboard_Adapter extends RecyclerView.Adapter<Lendor_Dashbo
      */
     @Override
     public int getItemCount() {
-        return projectList.size();
+        return this.projectList.size();
     }
 
     public interface OnItemClickListener {

@@ -144,7 +144,7 @@ public class Lendor_Dashboard_Activity extends AppCompatActivity {
                     Log.d(TAG, "Post Bid: " + bidInfoTO.getCampaignid() + " " + bidInfoTO.getQuote()
                             + " " + bidInfoTO.getUserid());
 
-                    // TODO: Implement your own authentication logic here.
+                   /* // TODO: Implement your own authentication logic here.
                     new android.os.Handler().postDelayed(
                             new Runnable() {
                                 public void run() {
@@ -154,8 +154,8 @@ public class Lendor_Dashboard_Activity extends AppCompatActivity {
                                     // onLoginFailed();
                                     progressDialog.dismiss();
                                 }
-                            }, 3000);
-                    /*Call<ResponseTO> mCall = mP2PLendingAPIService.postBid(bidInfoTO);
+                            }, 3000);*/
+                    Call<ResponseTO> mCall = mP2PLendingAPIService.postBid(bidInfoTO);
                     mCall.enqueue(new Callback<ResponseTO>() {
                         @Override
                         public void onResponse(Call<ResponseTO> call,
@@ -175,7 +175,7 @@ public class Lendor_Dashboard_Activity extends AppCompatActivity {
                             onPostBidFailed();
                             call.cancel();
                         }
-                    });*/
+                    });
                 }
             });
             alertDialogBuilder.setNegativeButton(getResources().getString(
@@ -235,7 +235,7 @@ public class Lendor_Dashboard_Activity extends AppCompatActivity {
                         bidInfo.setQuote(projectTO.getBidinfo().getQuote());
                         bidInfo.setUserid(projectTO.getBidinfo().getUserid());
 
-                        if (projectTO.getBidlist() != null) {
+                       if (projectTO.getBidlist() != null) {
                             for (BidInfoTO bidListTOInfo : projectTO.getBidlist()) {
                                 BidInfo bidListInfo = new BidInfo();
                                 bidListInfo.setId(bidListTOInfo.getId());
@@ -253,14 +253,15 @@ public class Lendor_Dashboard_Activity extends AppCompatActivity {
                         projectList.add(project);
                     }
                 }
-                Log.d(TAG, "CampaignList Size: " + projectList.size());
+                Log.d(TAG, "CampaignList Size Lendor: " + projectList.size());
+
                 // for one column grid layout
                 mStaggeredGridLayoutManager = new StaggeredGridLayoutManager(1,
                         StaggeredGridLayoutManager.VERTICAL);
                 mRecylerView.setLayoutManager(mStaggeredGridLayoutManager);
-
                 dashboardAdapter = new Lendor_Dashboard_Adapter(Lendor_Dashboard_Activity.this,
                         projectList);
+                dashboardAdapter.notifyDataSetChanged();
                 mRecylerView.setAdapter(dashboardAdapter);
                 dashboardAdapter.setmItemClickListener(onItemClickListener);
                 progressDialog.dismiss();
@@ -278,17 +279,17 @@ public class Lendor_Dashboard_Activity extends AppCompatActivity {
      * Method for handling Success post bid scenario.
      */
     public void onPostBidSuccess(ResponseTO jsonResponse) {
-        Log.d(TAG, "Success Response: " + jsonResponse.getResponseStatus());
+        //Log.d(TAG, "Success Response: " + jsonResponse.getResponseMessage());
         Toast.makeText(getBaseContext(), "Bid Posting successful",
                 Toast.LENGTH_LONG).show();
 
-        if (jsonResponse.getResponseStatus() == Constants.CREATED) {
+        //if (jsonResponse.getResponseStatus() == Constants.CREATED) {
             Intent intent = new Intent(Lendor_Dashboard_Activity.this,
                     Lendor_Dashboard_Activity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(intent);
             Lendor_Dashboard_Activity.this.finish();
-        }
+        //}
     }
 
     /**

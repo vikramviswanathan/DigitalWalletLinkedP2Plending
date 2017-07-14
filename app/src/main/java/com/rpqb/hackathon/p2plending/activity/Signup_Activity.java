@@ -316,17 +316,17 @@ public class Signup_Activity extends AppCompatActivity {
      */
     public void onSignUpSuccess(ResponseTO jsonResponse) {
         btnSignUp.setEnabled(true);
-        Log.d(TAG, "Success Response: " + jsonResponse.getResponseStatus());
+        //Log.d(TAG, "Success Response: " + jsonResponse.getResponseMessage());
         Toast.makeText(getBaseContext(), "SignUp successfull. Please login.",
                 Toast.LENGTH_LONG).show();
 
-        if (jsonResponse.getResponseStatus() == Constants.CREATED) {
+        //if (jsonResponse.getResponseStatus() == Constants.CREATED) {
             Intent intent = new Intent(Signup_Activity.this,
                     Login_Activity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(intent);
             Signup_Activity.this.finish();
-        }
+        //}
     }
 
     public void activateError() {

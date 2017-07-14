@@ -10,7 +10,7 @@ public class BidInfoTO {
     @SerializedName("id")
     private Integer id;
     @SerializedName("bidcreationtime")
-    private Integer bidcreationtime;
+    private String bidcreationtime;
     @SerializedName("campaignid")
     private Integer campaignid;
     @SerializedName("userid")
@@ -26,11 +26,11 @@ public class BidInfoTO {
         this.id = id;
     }
 
-    public Integer getBidcreationtime() {
+    public String getBidcreationtime() {
         return bidcreationtime;
     }
 
-    public void setBidcreationtime(Integer bidcreationtime) {
+    public void setBidcreationtime(String bidcreationtime) {
         this.bidcreationtime = bidcreationtime;
     }
 

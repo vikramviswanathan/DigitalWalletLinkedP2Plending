@@ -19,11 +19,16 @@ import android.widget.Toast;
 import com.rpqb.hackathon.p2plending.R;
 import com.rpqb.hackathon.p2plending.rest.ApiClient;
 import com.rpqb.hackathon.p2plending.rest.P2PLendingAPI;
+import com.rpqb.hackathon.p2plending.transferobject.ProjectTO;
+import com.rpqb.hackathon.p2plending.transferobject.ResponseTO;
 import com.rpqb.hackathon.p2plending.utils.Constants;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import fr.ganfra.materialspinner.MaterialSpinner;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by Vikramv on 6/26/2017.
@@ -161,27 +166,35 @@ public class AddNewProject_Activity extends AppCompatActivity implements Adapter
         rateOfInterest = Float.parseFloat(edTxtROI.getText().toString());
         noOfInstallments = Integer.parseInt(spinNoOfInstallments.getSelectedItem().toString());
 
+        ProjectTO projectDetailsTO = new ProjectTO();
+        projectDetailsTO.setUserid(userID);
+        projectDetailsTO.setTitle(title);
+        projectDetailsTO.setDescription(description);
+        projectDetailsTO.setLoanamount(amount);
+        projectDetailsTO.setInterest(Double.valueOf(rateOfInterest));
+        projectDetailsTO.setNoOfTerms(noOfInstallments);
+
         Log.d(TAG, "Post Create Campaign: " + userID + " " + title + " " + description
                 + " " + amount + " " + rateOfInterest + " " + noOfInstallments);
 
         mP2PLendingAPIService = ApiClient.getP2PLendingAPIService();
-        /*Call mCall = mP2PLendingAPIService.addNewProject(projectDetails);
+        Call mCall = mP2PLendingAPIService.addNewProject(projectDetailsTO);
         mCall.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
                 Log.d(TAG, "Create Campaign Response: " + response.body());
                 ResponseTO jsonResponse = (ResponseTO) response.body();
-                progressDialog.hide();*/
-        onAddProjectSuccess();
-        //}
+                progressDialog.hide();
+                onAddProjectSuccess(jsonResponse);
+            }
 
-            /*@Override
+            @Override
             public void onFailure(Call call, Throwable t) {
                 progressDialog.hide();
                 onAddProjectFailed();
                 call.cancel();
             }
-        });*/
+        });
     }
 
     /**
@@ -269,7 +282,7 @@ public class AddNewProject_Activity extends AppCompatActivity implements Adapter
     /**
      * Method for handling Success add new project scenario.
      */
-    public void onAddProjectSuccess() {
+    public void onAddProjectSuccess(ResponseTO jsonResponse) {
         btnAddProject.setEnabled(true);
         //Log.d(TAG, "Success Response: " + response);
 

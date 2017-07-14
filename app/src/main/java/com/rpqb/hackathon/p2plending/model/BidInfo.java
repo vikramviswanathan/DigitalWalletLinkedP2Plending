@@ -6,7 +6,7 @@ package com.rpqb.hackathon.p2plending.model;
 
 public class BidInfo {
     private int id;
-    private int bidcreationtime;
+    private String bidcreationtime;
     private int campaignid;
     private String userid;
     private double quote;
@@ -19,11 +19,11 @@ public class BidInfo {
         this.id = id;
     }
 
-    public int getBidcreationtime() {
+    public String getBidcreationtime() {
         return bidcreationtime;
     }
 
-    public void setBidcreationtime(int bidcreationtime) {
+    public void setBidcreationtime(String bidcreationtime) {
         this.bidcreationtime = bidcreationtime;
     }
 

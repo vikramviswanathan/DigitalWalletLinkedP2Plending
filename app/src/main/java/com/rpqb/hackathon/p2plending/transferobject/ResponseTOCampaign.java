@@ -8,15 +8,15 @@ import com.google.gson.annotations.SerializedName;
 
 public class ResponseTOCampaign {
     @SerializedName("status")
-    private Integer status;
+    private int status;
     @SerializedName("campaignlist")
     private ProjectTOBody campaignlist;
 
-    public Integer getStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 
